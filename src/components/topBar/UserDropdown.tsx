@@ -1,5 +1,5 @@
+import { useAuth } from './AuthContext';
 import './UserDropdown.css'; 
-import UserAvatar from './UserAvatar';
 
 interface UserDropdownProps {
   isOpen: boolean;
@@ -8,6 +8,7 @@ interface UserDropdownProps {
 
 export default function UserDropdown({ isOpen, onClose }: UserDropdownProps) {
   if (!isOpen) return null;
+  const { toggleLogin } = useAuth();
 
   return (
     <div className="dropdown-container">
@@ -17,7 +18,7 @@ export default function UserDropdown({ isOpen, onClose }: UserDropdownProps) {
 
       <div className="dropdown-header">
         <span className="dropdown-email">usuario@ejemplo.com</span>
-        <UserAvatar onClick={onClose} size="large" /> 
+        <span className='dropdown-user'>W</span>
         <span className="dropdown-name">¡Hola, Wisepilo!</span>
       </div>
 
@@ -33,7 +34,7 @@ export default function UserDropdown({ isOpen, onClose }: UserDropdownProps) {
         <li className="dropdown-menu-item">
           <span className="dropdown-icon">+</span> Añadir otra cuenta
         </li>
-        <li className="dropdown-menu-item" onClick={onClose}>
+        <li className="dropdown-menu-item" onClick={toggleLogin}>
           <span className="dropdown-icon">-</span> Cerrar sesión
         </li>
       </ul>

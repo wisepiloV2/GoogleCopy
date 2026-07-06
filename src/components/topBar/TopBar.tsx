@@ -1,47 +1,36 @@
-import { useState, useRef, useEffect } from 'react'; // ¡No olvides importar useRef y useEffect!
 import './TopBar.css';
-import AppsMenu from './AppsMenu'; 
+import AppsMenu from './AppsMenu';
+import { useAuth } from './AuthContext';
 import UserAvatar from './UserAvatar';
 import UserDropdown from './UserDropdown';
+import { useState } from 'react';
 
 export default function TopBar() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const userMenuRef = useRef<HTMLDivElement>(null);
+    const { isLoggedIn, toggleLogin } = useAuth();
+    const [isOpen, setIsOpen] = useState(false);
 
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (userMenuRef.current && !userMenuRef.current.contains(event.target as Node)) {
-        setIsMenuOpen(false);
-      }
-    };
+    return (
+        <div className="top-bar-container">
+            <a href="https://mail.google.com" className="top-bar-link">Gmail</a>
+            <a href="https://images.google.com" className="top-bar-link">Imágenes</a>
 
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
-  }, []);
-
-  return (
-    <div className="top-bar-container">
-      <a href="https://mail.google.com" className="top-bar-link">
-        Gmail
-      </a>
-      <a href="https://images.google.com" className="top-bar-link">
-        Imágenes
-      </a>
-
-      <div className="top-bar-actions">
-        <AppsMenu />
-        
-        <div ref={userMenuRef} className="user-menu-wrapper">
-          <UserAvatar onClick={() => setIsMenuOpen(!isMenuOpen)} size="small" />
-          
-          <UserDropdown 
-            isOpen={isMenuOpen} 
-            onClose={() => setIsMenuOpen(false)} 
-          />
+            <div className="top-bar-actions">
+                <AppsMenu />
+                {isLoggedIn ? (
+                    <UserAvatar 
+                        isOpen={isOpen} 
+                        onToggle={() => setIsOpen(!isOpen)} 
+                        onClose={() => setIsOpen(false)}    
+                    >
+                        <UserDropdown 
+                            isOpen={isOpen} 
+                            onClose={() => setIsOpen(false)}
+                        />
+                    </UserAvatar>
+                ) : (
+                    <button className="sign-in-button" onClick={toggleLogin}>Acceder</button>
+                )}
+            </div>
         </div>
-      </div>
-    </div>
-  );
+    );
 }

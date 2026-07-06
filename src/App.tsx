@@ -1,5 +1,5 @@
-import TopBar from './components/testing/TopBar';
-import { AuthProvider } from './components/testing/AuthContext';
+import TopBar from './components/topBar/TopBar';
+import { AuthProvider } from './components/topBar/AuthContext';
 const App = () => {
   return (
     <AuthProvider>

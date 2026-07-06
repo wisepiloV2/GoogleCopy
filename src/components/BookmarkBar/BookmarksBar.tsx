@@ -7,11 +7,16 @@ interface Bookmark {
   url?: string;
   domain?: string;
   isFolder?: boolean;
+  links?: Bookmark[]; 
 }
 
 const MOCK_BOOKMARKS: Bookmark[] = [
   { id: '1', title: 'GitHub', domain: 'github.com', url: 'https://github.com' },
-  { id: '2', title: 'Work', isFolder: true },
+  { id: '2', title: 'Work', isFolder: true, links: {
+    { id: '1', title: 'GitHub', domain: 'github.com', url: 'https://github.com' },
+    { id: '2', title: 'GitHub', domain: 'github.com', url: 'https://github.com' },
+    { id: '3', title: 'GitHub', domain: 'github.com', url: 'https://github.com' },
+  } },
 ];
 
 const FolderIcon = () => (
@@ -21,15 +26,12 @@ const FolderIcon = () => (
 );
 
 export default function BookmarksBar() {
-  // Estado para controlar qué carpeta está abierta (guarda el ID)
   const [openFolderId, setOpenFolderId] = useState<string | null>(null);
 
   const handleBookmarkClick = (bookmark: Bookmark) => {
     if (bookmark.isFolder) {
-      // Si es carpeta, abrimos/cerramos el menú
       setOpenFolderId(prevId => prevId === bookmark.id ? null : bookmark.id);
     } else if (bookmark.url) {
-      // Si es un enlace, abrimos en una nueva pestaña
       window.open(bookmark.url, '_blank', 'noopener,noreferrer');
     }
   };
@@ -38,13 +40,11 @@ export default function BookmarksBar() {
     <div className='bookmarks-bar-container'>
       <div className="bookmarks-list">
         {MOCK_BOOKMARKS.map((bookmark) => (
-          // Usamos un div relativo para que el menú desplegable (rectángulo) se posicione debajo del botón
           <div key={bookmark.id} style={{ position: 'relative', display: 'inline-block' }}>
             <button
               className="bookmark-item"
               title={bookmark.title}
               onClick={() => handleBookmarkClick(bookmark)}
-              // Quitamos estilos por defecto del botón para que se vea como antes
               style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}
             >
               {bookmark.isFolder ? (
@@ -59,7 +59,6 @@ export default function BookmarksBar() {
               <span className="bookmark-title">{bookmark.title}</span>
             </button>
 
-            {/* Renderizado condicional del rectángulo negro (futuro componente) */}
             {bookmark.isFolder && openFolderId === bookmark.id && (
               <div 
                 style={{

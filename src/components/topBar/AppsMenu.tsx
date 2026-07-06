@@ -12,6 +12,7 @@ const apps: AppItem[] = [
   { name: 'Gmail', url: 'https://mail.google.com' },
   { name: 'Meet', url: 'https://meet.google.com' },
   { name: 'Drive', url: 'https://drive.google.com' },
+  { name: 'Traductor', url: 'https://translate.google.com' },
 ];
 
 export default function AppsMenu() {
@@ -50,6 +51,7 @@ export default function AppsMenu() {
 
       {isOpen && (
         <div className="apps-dropdown">
+          <p className="apps-title">Más usadas</p>
           {apps.map((app) => (
             <a key={app.name} href={app.url} className="app-item" target="_blank" rel="noopener noreferrer">
               <img
