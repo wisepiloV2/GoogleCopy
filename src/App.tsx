@@ -1,12 +1,12 @@
-import TopBar from "./components/topBar/TopBar";
-
-function App() {
+import TopBar from './components/testing/TopBar';
+import { AuthProvider } from './components/testing/AuthContext';
+const App = () => {
   return (
-    <>
-    <TopBar />
-    </>
+    <AuthProvider>
+      <TopBar />
+    </AuthProvider>
   );
-}
+};
 
 export default App;
 

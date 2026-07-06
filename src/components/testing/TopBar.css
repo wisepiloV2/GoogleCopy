@@ -1,0 +1,73 @@
+.top-bar-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 12px 24px;
+  font-family: 'Arial', sans-serif;
+  font-size: 13px;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.top-bar-link {
+  color: #202124;
+  text-decoration: none;
+  margin-right: 16px;
+}
+
+.top-bar-link:hover {
+  text-decoration: underline;
+}
+
+.top-bar-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px; 
+}
+
+.profile-button {
+  background-color: #e53935; 
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: box-shadow 0.2s;
+}
+
+.profile-button:hover {
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+
+.sign-in-button {
+  background-color: #1a73e8;
+  color: #fff;
+  border: 1px solid transparent;
+  border-radius: 30px; 
+  padding: 9px 23px;
+  font-family: 'Google Sans', Roboto, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.25px;
+  cursor: pointer;
+  line-height: 16px;
+  text-align: center;
+  transition: background-color 0.15s, box-shadow 0.15s;
+}
+
+.sign-in-button:hover {
+  background-color: #1b66c9; 
+  box-shadow: 0 1px 2px 0 rgba(60,64,67,0.3), 0 1px 3px 1px rgba(60,64,67,0.15);
+}
+
+
+.sign-in-button:active {
+  background-color: #185abc; 
+  box-shadow: 0 1px 2px 0 rgba(60,64,67,0.3);
+}
