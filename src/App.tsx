@@ -1,3 +1,16 @@
+import TopBar from "./components/topBar/TopBar";
+
+function App() {
+  return (
+    <>
+    <TopBar />
+    </>
+  );
+}
+
+export default App;
+
+/*
 import TopBar from "./components/visualDesign/TopBar";
 import BookmarksBar from "./components/visualDesign/BookmarksBar";
 import SearchBar from "./components/visualDesign/SearchBar";
@@ -14,8 +27,7 @@ const GoogleSvg = (
   </svg>
 );
 
-function App() {
-  return (
+
     <>
       <BookmarksBar />
       <TopBar />
@@ -33,7 +45,4 @@ function App() {
       <SearchBar />
       </main>
     </>
-  );
-}
-
-export default App;
+*/
