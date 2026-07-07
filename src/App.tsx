@@ -1,19 +1,7 @@
 import TopBar from './components/topBar/TopBar';
 import { AuthProvider } from './components/topBar/AuthContext';
-const App = () => {
-  return (
-    <AuthProvider>
-      <TopBar />
-    </AuthProvider>
-  );
-};
-
-export default App;
-
-/*
-import TopBar from "./components/visualDesign/TopBar";
-import BookmarksBar from "./components/visualDesign/BookmarksBar";
-import SearchBar from "./components/visualDesign/SearchBar";
+import BookmarksBar from './components/BookmarkBar/BookmarksBar';
+import SearchBar from './components/visualDesign/SearchBar';
 
 const GoogleSvg = (
   <svg height="10em" style={{ flex: "none", lineHeight: 1 }} viewBox="0 0 77 24" xmlns="http://www.w3.org/2000/svg">
@@ -28,7 +16,9 @@ const GoogleSvg = (
 );
 
 
-    <>
+const App = () => {
+  return (
+    <AuthProvider>
       <BookmarksBar />
       <TopBar />
       <main 
@@ -44,5 +34,8 @@ const GoogleSvg = (
         
       <SearchBar />
       </main>
-    </>
-*/
+    </AuthProvider>
+  );
+};
+
+export default App;
