@@ -1,12 +1,13 @@
 import './TopBar.css';
+import { Link } from 'react-router-dom';
 import AppsMenu from './AppsMenu';
-import { useAuth } from './AuthContext';
+import { useAuth } from '../../context/AuthContext';
 import UserAvatar from './UserAvatar';
 import UserDropdown from './UserDropdown';
 import { useState } from 'react';
 
 export default function TopBar() {
-    const { isLoggedIn, toggleLogin } = useAuth();
+    const { user } = useAuth();
     const [isOpen, setIsOpen] = useState(false);
 
     return (
@@ -16,7 +17,7 @@ export default function TopBar() {
 
             <div className="top-bar-actions">
                 <AppsMenu />
-                {isLoggedIn ? (
+                {user ? (
                     <UserAvatar 
                         isOpen={isOpen} 
                         onToggle={() => setIsOpen(!isOpen)} 
@@ -28,7 +29,7 @@ export default function TopBar() {
                         />
                     </UserAvatar>
                 ) : (
-                    <button className="sign-in-button" onClick={toggleLogin}>Acceder</button>
+                    <Link to="/login" className="sign-in-button">Acceder</Link>
                 )}
             </div>
         </div>

@@ -1,5 +1,10 @@
 import Bookmark from "./Bookmark";
 import "./BookmarksBar.css"
+import { useNavigate } from "react-router-dom";
+
+export const Inicio = () => {
+  const navigate = useNavigate();
+}
 
 export default function BookmarksBar() {
   const bookmarksData = [
@@ -20,7 +25,6 @@ export default function BookmarksBar() {
       ]
     }
   ];
-
   return (
     <div className="bookmarks-bar-container">
       <div className="bookmarks-list">
@@ -28,6 +32,7 @@ export default function BookmarksBar() {
           <Bookmark key={i} {...bm} />
         ))}
       </div>
+      <button className="bookmarks-btn">Agregar</button>
     </div>
   );
 }
