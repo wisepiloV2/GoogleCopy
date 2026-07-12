@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./Bookmark.css";
 
-interface BookmarkProps {
+export interface BookmarkProps {
   title: string;
   url?: string;
   domain?: string;

@@ -1,4 +1,4 @@
-interface User {
+export interface User {
   id: string;
   name: string;
   email: string;
@@ -21,7 +21,7 @@ function getUsers(): Promise<User[]> {
 }
 
 // READ: Obtener por ID (tu código original)
-function getUserById(id: string): Promise<User | undefined> {
+export function getUserById(id: string): Promise<User | undefined> {
   return new Promise((resolve) => {
     setTimeout(() => {
       const user = mockUsers.find(u => u.id === id);
@@ -31,7 +31,7 @@ function getUserById(id: string): Promise<User | undefined> {
 }
 
 // CREATE: Crear un usuario (Omitimos el 'id' porque lo genera la "base de datos")
-function createUser(userData: Omit<User, 'id'>): Promise<User> {
+export function createUser(userData: Omit<User, 'id'>): Promise<User> {
   return new Promise((resolve) => {
     setTimeout(() => {
       const newUser: User = {

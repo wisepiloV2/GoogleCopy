@@ -1,8 +1,4 @@
-import TopBar from '../components/topBar/TopBar';
-import BookmarksBar from '../components/BookmarkBar/BookmarksBar';
-import SearchBar from '../components/visualDesign/SearchBar';
-
-const GoogleSvg = (
+export const GoogleSvg = (
   <svg height="10em" style={{ flex: "none", lineHeight: 1 }} viewBox="0 0 77 24" xmlns="http://www.w3.org/2000/svg">
     <title>Google</title>
     <path d="M19.947 8.482H11.43v2.536h6.041c-.298 3.557-3.247 5.074-6.03 5.074-3.562 0-6.67-2.812-6.67-6.753 0-3.839 2.963-6.795 6.677-6.795 2.866 0 4.555 1.833 4.555 1.833l1.77-1.84S15.5 0 11.357 0C6.081 0 2 4.468 2 9.294c0 4.729 3.84 9.34 9.491 9.34 4.972 0 8.61-3.417 8.61-8.47 0-1.067-.154-1.683-.154-1.683" fill="#4285F4"></path>
@@ -13,28 +9,3 @@ const GoogleSvg = (
     <path d="M60.239 18.272h2.628V.62H60.24z" fill="#34A853"></path>
   </svg>
 );
-
-
-const Home = () => {
-  return (
-    <>
-      <BookmarksBar />
-      <TopBar />
-      <main 
-        style={{ 
-          display: "flex", 
-          flexDirection: "column", 
-          alignItems: "center", 
-          justifyContent: "center", 
-          flexGrow: 1
-        }}
-      >
-      {GoogleSvg}
-        
-      <SearchBar />
-      </main>
-    </>
-  );
-};
-
-export default Home;

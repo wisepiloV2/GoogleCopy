@@ -1,12 +1,11 @@
-// AuthContext.tsx
 import { createContext, useState, useContext, type ReactNode } from 'react';
-import { getUserById, type User } from '../api/apiUsers'; // Asegúrate de ajustar la ruta
+import { getUserById, type User } from '../api/apiUsers'; 
 
-// 1. Actualizamos el contrato de lo que expone el contexto
+
 interface AuthContextType {
-  user: User | null;           // El objeto usuario con todos sus datos y roles
-  isLoggedIn: boolean;         // Derivado de si existe el usuario
-  isLoading: boolean;          // Para mostrar pantallas de carga
+  user: User | null;           
+  isLoggedIn: boolean;         
+  isLoading: boolean;          
   login: (id: string) => Promise<void>; 
   logout: () => void;
 }
