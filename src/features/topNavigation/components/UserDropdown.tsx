@@ -1,4 +1,4 @@
-import { useAuth } from '../../context/AuthContext';
+import { useAuth } from '../../../context/AuthProvider';
 import './UserDropdown.css'; 
 
 interface UserDropdownProps {
@@ -8,7 +8,12 @@ interface UserDropdownProps {
 
 export default function UserDropdown({ isOpen, onClose }: UserDropdownProps) {
   if (!isOpen) return null;
-  const { logout } = useAuth();
+  
+  const { user, logout } = useAuth();
+
+  if (!user) return null;
+
+  const userInitial = user.name ? user.name.charAt(0).toUpperCase() : 'U';
 
   return (
     <div className="dropdown-container">
@@ -17,14 +22,14 @@ export default function UserDropdown({ isOpen, onClose }: UserDropdownProps) {
       </button>
 
       <div className="dropdown-header">
-        <span className="dropdown-email">usuario@ejemplo.com</span>
-        <span className='dropdown-user'>W</span>
-        <span className="dropdown-name">¡Hola, Wisepilo!</span>
+        <span className="dropdown-email">{user.email}</span>
+        <span className='dropdown-user'>{userInitial}</span>
+        <span className="dropdown-name">¡Hola, {user.name}!</span>
       </div>
 
       <div className="dropdown-manage">
         <button className="btn-manage-account">
-          Gestionar tu cuenta de Google
+          Gestionar tu cuenta
         </button>
       </div>
 

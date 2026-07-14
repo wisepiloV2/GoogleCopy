@@ -9,16 +9,6 @@
   width: 100%;
 }
 
-.top-bar-link {
-  color: #202124;
-  text-decoration: none;
-  margin-right: 16px;
-}
-
-.top-bar-link:hover {
-  text-decoration: underline;
-}
-
 .top-bar-actions {
   display: flex;
   align-items: center;

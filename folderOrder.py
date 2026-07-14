@@ -1,9 +1,6 @@
 """
 src/
 ├── components/
-│   ├── layout/               <-- Componentes de estructura
-│   │   └── TopBar/
-│   │       └── TopBar.tsx
 |   |
 │   ├── Logo/
 │   │   └── Logo.tsx    <-- UI pura
@@ -58,6 +55,13 @@ src/
 │   |       ├── BookmarkButton.tsx <-- Usa <StarIcon /> + useBookmarks(). Sabe a qué item pertenece.
 │   |       ├── BookmarkList.tsx   <-- Muestra la lista de todos los elementos guardados.
 │   |       └── BookmarkFolder.tsx <-- Si permites crear carpetas/colecciones.
+|   |
+│   ├── topNavigation/             
+│   |   └── components/
+│   |       ├── AppsMenu.tsx
+│   |       ├── LinkBar.tsx
+|   |       ├── UserDropdown.tsx
+│   |       └── UserAvatar.tsx
 |   |
 │   └── search/
 │       ├── api/

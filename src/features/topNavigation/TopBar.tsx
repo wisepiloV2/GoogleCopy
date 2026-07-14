@@ -1,20 +1,24 @@
 import './TopBar.css';
 import { Link } from 'react-router-dom';
-import AppsMenu from './AppsMenu';
-import { useAuth } from '../../context/AuthContext';
-import UserAvatar from './UserAvatar';
-import UserDropdown from './UserDropdown';
-import { useState } from 'react';
+import { useState, type ReactNode } from 'react';
+import { useAuth } from '../../context/AuthProvider';
+import AppsMenu from './components/AppsMenu';
+import UserAvatar from './components/UserAvatar';
+import UserDropdown from './components/UserDropdown';
 
-export default function TopBar() {
+interface TopbarProps {
+  children: ReactNode;
+}
+
+export function TopBar({ children }: TopbarProps) {
     const { user } = useAuth();
     const [isOpen, setIsOpen] = useState(false);
 
     return (
         <div className="top-bar-container">
-            <a href="https://mail.google.com" className="top-bar-link">Gmail</a>
-            <a href="https://images.google.com" className="top-bar-link">Imágenes</a>
 
+            {children}
+            
             <div className="top-bar-actions">
                 <AppsMenu />
                 {user ? (
@@ -29,7 +33,8 @@ export default function TopBar() {
                         />
                     </UserAvatar>
                 ) : (
-                    <Link to="/login" className="sign-in-button">Acceder</Link>
+                    //<Link to="/login" className="sign-in-button">Acceder</Link>
+                    <a className="sign-in-button">Acceder</a>
                 )}
             </div>
         </div>

@@ -1,0 +1,32 @@
+.app-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 12px; 
+  text-decoration: none;
+  border-radius: 8px;
+  color: #3c4043;
+  transition: background-color 0.2s;
+}
+
+.app-item:hover {
+  background-color: #e7e7e7;
+}
+
+.app-icon {
+  width: 40px; 
+  height: 40px;
+  margin-bottom: 8px; 
+  display: block;
+  object-fit: contain; 
+}
+
+.app-name {
+  font-size: 14px;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+}

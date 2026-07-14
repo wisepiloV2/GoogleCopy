@@ -1,4 +1,5 @@
-import { useRef, useEffect, type ReactNode } from 'react';
+import { useEffect, useRef, type ReactNode } from "react";
+import { useAuth } from "../../../context/AuthProvider";
 
 interface UserAvatarProps {
   isOpen: boolean;
@@ -7,8 +8,30 @@ interface UserAvatarProps {
   children: ReactNode;  
 }
 
+const avatarButtonStyles: React.CSSProperties = {
+  backgroundColor: '#e53935', 
+  color: 'white',
+  border: 'none',
+  borderRadius: '50%',
+  fontWeight: '500',
+  cursor: 'pointer',
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  transition: 'box-shadow 0.2s',
+  lineHeight: 0, 
+  width: '32px', 
+  height: '32px', 
+  fontSize: '0.9rem',
+};
+
+const containerStyles: React.CSSProperties = {
+  position: 'relative'
+};
+
 export default function UserAvatar({ isOpen, onToggle, onClose, children}: UserAvatarProps) {
   const containerRef = useRef<HTMLDivElement>(null);
+  const { user } = useAuth();
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -23,32 +46,16 @@ export default function UserAvatar({ isOpen, onToggle, onClose, children}: UserA
     
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, [isOpen, onClose]); 
-
   return (
-    <div ref={containerRef} style={{ position: 'relative' }}>
+    <div ref={containerRef} style={containerStyles}>
       <button 
         className='user-avatar' 
         onClick={onToggle} 
-        style={{
-          backgroundColor: '#e53935', 
-          color: 'white',
-          border: 'none',
-          borderRadius: '50%',
-          fontWeight: '500',
-          cursor: 'pointer',
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          transition: 'box-shadow 0.2s',
-          lineHeight: '0',
-          width: '32px', 
-          height: '32px', 
-          fontSize: '0.9rem',
-        }}
+        style={avatarButtonStyles}
       >
-        W
+        {user.name.charAt(0)}
       </button>
       {isOpen && (children)}
-    </div>
+    </div> 
   );
 }
