@@ -1,10 +1,11 @@
-import { HomePage } from "./pages/HomePage"
-import {AuthProvider} from "./context/AuthProvider"
+import { RouterProvider } from "react-router-dom";
+import { AuthProvider } from "./context/AuthProvider";
+import { router } from "./router";
 
 export default function App() {
     return (
         <AuthProvider>
-            <HomePage />
+            <RouterProvider router={router} />
         </AuthProvider>
     );
 }
