@@ -1,3 +1,5 @@
+import './LinkBar.css'
+
 export default function LinkBar(){
     return (
         <div className="link-bar-container">

@@ -26,7 +26,7 @@ const SearchDropdown = ({ suggestions, onSelect }: SearchDropdownProps) => (
                         className="dropdown-item"
                         onMouseDown={() => onSelect(suggestion)} 
                     >
-                        {suggestion} <span className='dropdown-item-type'>Busqueda de google</span>
+                        {suggestion}<span className='dropdown-item-type'>-   Busqueda de google</span>
                     </li>
                 ))
             ) : (

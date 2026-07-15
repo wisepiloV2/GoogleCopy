@@ -1,3 +1,5 @@
+import './AppLink.css'
+
 interface AppLinkProps {
     name: string;
     url: string;

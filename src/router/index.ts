@@ -1,2 +1,2 @@
-import { router } from "./AppRouter"
-export { router }
+import { AppRouter } from "./AppRouter"
+export { AppRouter }

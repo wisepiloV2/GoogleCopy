@@ -10,7 +10,7 @@ function HomePage(){
                 <LinkBar />
             </TopBar> 
         </header>
-        <main>
+        <main style={{display: 'flex', flexDirection:'column', justifyContent: 'center', gap: '10px'}}>
             {Logo}
             <SearchBar />
         </main>
