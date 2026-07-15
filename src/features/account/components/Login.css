@@ -1,0 +1,86 @@
+.login-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color:#f0f2f5;
+    font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+.login-card{
+    background-color: #ffffff;
+    padding: 48px 40px 36px;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0,0,0,0.24);
+    width: 100%;
+    max-width: 450px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.login-title{
+    font-size: 24px;
+    font-weight: 400;
+    color: #202124;
+    margin: 0 0 8px 0;
+}
+
+.login-form{
+    width: 100%;
+}
+
+.login-input-container{
+    margin-bottom: 8px;
+}
+
+.login-input{
+    width: 100%;
+    padding: 13px 15px;
+    font-size: 16px;
+    border: 1px solid #dadce0;
+    border-radius: 4px;
+    box-sizing: border-box;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.login-error{
+    color: #d93025;
+    font-size: 12px;
+    margin: 4px 0 8px 0;
+}
+
+.login-forgot{
+    margin-bottom: 32px;
+}
+
+.login-btns-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.login-btn-create{
+    background-color: transparent;
+    border: none;
+    color: #1a73e8;
+    font-weight: 500;
+    font-size: 14px;
+    cursor: pointer;
+    padding: 8px;
+}
+
+.login-btn-submit{
+    background-color: #1a73e8;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 24px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    height: 36px;
+    transition: background-color 0.2s;
+}

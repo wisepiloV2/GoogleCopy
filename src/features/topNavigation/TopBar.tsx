@@ -33,8 +33,7 @@ export function TopBar({ children }: TopbarProps) {
                         />
                     </UserAvatar>
                 ) : (
-                    //<Link to="/login" className="sign-in-button">Acceder</Link>
-                    <a className="sign-in-button">Acceder</a>
+                    <Link to="/login" className="sign-in-button">Acceder</Link>
                 )}
             </div>
         </div>
