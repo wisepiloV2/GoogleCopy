@@ -1,5 +1,5 @@
 import { createContext, useState, useContext, type ReactNode } from 'react';
-import { getUserById, type User } from '../features/account/api/apiUsers';
+import { getUserById, type User } from '../features/auth/api/apiUsers';
 
 
 interface AuthContextType {

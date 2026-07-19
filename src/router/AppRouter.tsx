@@ -1,15 +1,17 @@
 import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom';
 import { HomePage } from '../pages/HomePage';
-import { Login } from '../features/account';
-
-
-const ErrorPage = () => <h1>¡Ups! Esa página no existe. (Error 404)</h1>;
+import { LoginForm, RegisterForm, ForgotEmail, ForgotPassword } from '../features/auth';
+import {ErrorPage} from '../pages/ErrorPage'
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Outlet />, 
-    errorElement: <ErrorPage />,
+    errorElement: 
+      <ErrorPage 
+        title='Error 404. Pagina no encontrada' 
+        subtitle='La pagina que buscas no existe.'
+      />,
     children: [
       { 
         path: "/", 
@@ -17,7 +19,19 @@ const router = createBrowserRouter([
       },
       {
         path: "/login",
-        element: <Login />
+        element: <LoginForm />
+      },
+      {
+        path: "/register",
+        element: <RegisterForm />
+      },
+      {
+        path: "/forgot-password",
+        element: <ForgotPassword />
+      },
+      {
+        path: "/forgot-email",
+        element: <ForgotEmail />
       }
     ],
   },

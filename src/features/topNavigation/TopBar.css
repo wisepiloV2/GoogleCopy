@@ -49,6 +49,7 @@
   line-height: 16px;
   text-align: center;
   transition: background-color 0.15s, box-shadow 0.15s;
+  text-decoration: none;
 }
 
 .sign-in-button:hover {
