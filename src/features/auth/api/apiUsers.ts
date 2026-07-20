@@ -1,12 +1,15 @@
 export interface User {
-  id: string;
-  name: string;
+  id?: string;
+  firstName: string;
+  lastName?: string;
   email: string;
+  phone: string;
+  token?: string; 
+  //Pondre contraseña solo para hacer el log
+  password: string;
 }
 
 const mockUsers: User[] = [
-  { id: '1', name: 'Wisepilo', email: 'wisepilo@gmail.com'},
-  { id: '2', name: 'Juan Perez', email: 'juan@gmail.com' }
 ];
 
 
@@ -27,15 +30,16 @@ function getUserById(id: string): Promise<User | undefined> {
   });
 }
 
-function createUser(userData: Omit<User, 'id'>): Promise<User> {
+function createUser(userData : User ): Promise<string> {
   return new Promise((resolve) => {
     setTimeout(() => {
+      const newId = crypto.randomUUID();
       const newUser: User = {
-        id: crypto.randomUUID(), 
+        id: newId, 
         ...userData
       };
       mockUsers.push(newUser);
-      resolve(newUser);
+      resolve(newId);
     }, 800);
   });
 }

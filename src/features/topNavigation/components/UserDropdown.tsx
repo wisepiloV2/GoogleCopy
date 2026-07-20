@@ -13,7 +13,7 @@ export default function UserDropdown({ isOpen, onClose }: UserDropdownProps) {
 
   if (!user) return null;
 
-  const userInitial = user.name ? user.name.charAt(0).toUpperCase() : 'U';
+  const userInitial = user.firstName ? user.firstName.charAt(0).toUpperCase() : 'U';
 
   return (
     <div className="dropdown-container">
@@ -24,7 +24,7 @@ export default function UserDropdown({ isOpen, onClose }: UserDropdownProps) {
       <div className="dropdown-header">
         <span className="dropdown-email">{user.email}</span>
         <span className='dropdown-user'>{userInitial}</span>
-        <span className="dropdown-name">¡Hola, {user.name}!</span>
+        <span className="dropdown-name">¡Hola, {user.firstName}!</span>
       </div>
 
       <div className="dropdown-manage">

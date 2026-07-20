@@ -1,0 +1,63 @@
+.input-link {
+  display: block;
+  margin-top: 10px;
+  color: #3b82f6;
+  font-size: 18px;
+  text-decoration: none;
+}
+
+.input-link:hover{
+  text-decoration:underline;
+}
+
+.btn-primary {
+  background-color: #3b82f6;
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: #2563eb;
+}
+
+.btn-secondary {
+  background-color: #f3f4f6;
+  color: #111827;
+}
+
+.btn-secondary:hover {
+  background-color: #e5e7eb;
+}
+
+.checkbox-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 12px;
+  margin-bottom: 16px; 
+}
+
+.checkbox-group input[type="checkbox"] {
+  cursor: pointer;
+  width: 16px;
+  height: 16px;
+}
+
+.checkbox-group label {
+  cursor: pointer;
+  font-size: 16px;
+  color: #333;
+  user-select: none; 
+}
+
+.field-error{
+  color: #cc0000;
+  padding: 5px 0;
+  margin: 0;
+}
+
+.field-error-server{
+  color: #cc0000;
+  padding: 5px 0;
+  margin: 0;
+  text-align: center;
+}

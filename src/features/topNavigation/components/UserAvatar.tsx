@@ -53,7 +53,7 @@ export default function UserAvatar({ isOpen, onToggle, onClose, children}: UserA
         onClick={onToggle} 
         style={avatarButtonStyles}
       >
-        {user.name.charAt(0)}
+        {user?.firstName.charAt(0)}
       </button>
       {isOpen && (children)}
     </div> 
