@@ -18,7 +18,7 @@ export function useRegister() {
     trigger, 
     getValues 
   } = useForm<RegisterFormData>({
-    mode: 'onChange', // Valida a medida que el usuario escribe
+    mode: 'onChange',
     defaultValues: {
       firstName: '', lastName: '', email: '', phone: '', password: '', confirmPassword: ''
     }

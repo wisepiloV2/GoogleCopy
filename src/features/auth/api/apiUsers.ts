@@ -1,5 +1,5 @@
 export interface User {
-  id?: string;
+  id: string;
   firstName: string;
   lastName?: string;
   email: string;
@@ -30,7 +30,21 @@ function getUserById(id: string): Promise<User | undefined> {
   });
 }
 
-function createUser(userData : User ): Promise<string> {
+function loginUserByEmailAndPassword(email: string, password: string): Promise<string | Error> {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      const user = mockUsers.find(u => u.email === email);
+      
+      if (!user || user.password !== password) {
+        resolve(new Error("Email o Contraseña incorrecta"));
+      } else {
+        resolve(user.id);
+      }
+    }, 1000); 
+  });
+}
+
+function createUser(userData: Omit<User, 'id'>): Promise<string> {
   return new Promise((resolve) => {
     setTimeout(() => {
       const newId = crypto.randomUUID();
@@ -76,5 +90,6 @@ function deleteUser(id: string): Promise<boolean> {
 
 export {
   getUserById,
-  createUser
+  createUser,
+  loginUserByEmailAndPassword
 }

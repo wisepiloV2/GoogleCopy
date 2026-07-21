@@ -10,7 +10,7 @@ const STEP_EMAIL = 1;
 const STEP_PASSWORD = 2;
 
 export function LoginForm() {
-    const { register, isSubmitting, errors, onSubmit, trigger } = useLogin();
+    const { register, isSubmitting, errors, onSubmit, trigger, getValues } = useLogin();
     const { step, handleNext, handleBack, isLastStep } = useFormSteps({maxSteps: 2});
     
     const [ showPassword, setShowPassword ] = useState(false);
@@ -27,6 +27,8 @@ export function LoginForm() {
             await onSubmit(e);
         }
     };
+
+    const emailInput = getValues('email'); 
 
     return (
         <FormLayout
@@ -60,7 +62,7 @@ export function LoginForm() {
                             id="email" 
                             type="email"
                             autoFocus 
-                            {...register('email', { required: 'El email es requerido' })}
+                            {...register('email')}
                         />
                         {errors.email && <span className="error">{errors.email.message}</span>}
                         <Link to="/forgot-email" className='input-link'>¿Olvidaste tu email?</Link>
@@ -68,13 +70,13 @@ export function LoginForm() {
                     </>      
                 ) : (
                     <>
-                        <UserBadge emailOrName={''} />
+                        <UserBadge emailOrName={emailInput} />
                         <InputField 
                             label="Contraseña" 
                             id="password" 
                             type={showPassword ? "text" : "password"}
                             autoFocus 
-                            {...register('password', { required: 'La contraseña es requerida' })}
+                            {...register('password')}
                         />
                         {errors.password && <span className="error">{errors.password.message}</span>}
                 

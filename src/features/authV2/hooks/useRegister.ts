@@ -55,12 +55,6 @@ export function useRegister() {
 
   const processRegistration = async (data: RegisterFormData) => {
     try {
-      await new Promise((resolve) => setTimeout(resolve, 2000));
-      if (data.email === 'testError@gmail.com') {
-        throw new Error('El correo ingresado ya se encuentra registrado (Error simulado)');
-      }
-      
-      
       const idUser = await createUser(data)
       await login(idUser);
       reset();
@@ -68,15 +62,8 @@ export function useRegister() {
       
     } catch (error) {
       const mensaje = error instanceof Error ? error.message : 'Error inesperado en el servidor';
-      
-      setError('root.serverError', {
-        type: 'server',
-        message: mensaje
-      });
-
-      setTimeout(() => {
-        clearErrors('root.serverError');
-      }, 5000);
+      setError('root.serverError', { type: 'server', message: mensaje });
+      setTimeout(() => clearErrors('root.serverError'), 5000);
     }
   };
 
