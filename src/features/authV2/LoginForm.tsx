@@ -1,31 +1,42 @@
+import { Link } from 'react-router-dom';
 import { FormLayout } from './components/FormLayout';
+import { InputField } from './components/InputField';
 import { useFormSteps } from './hooks/useFormSteps';
 import { useLogin } from './hooks/useLogin'
+import { UserBadge } from './components/UserBadge';
+import { useState } from 'react';
 
 const STEP_EMAIL = 1;
 const STEP_PASSWORD = 2;
 
-export function LoginForm(){
-    const { isSubmitting, errors } = useLogin();
+export function LoginForm() {
+    const { register, isSubmitting, errors, onSubmit, trigger } = useLogin();
     const { step, handleNext, handleBack, isLastStep } = useFormSteps({maxSteps: 2});
+    
+    const [ showPassword, setShowPassword ] = useState(false);
 
-    const getHeaderInfo = () => {
-        switch(step){
-            case STEP_EMAIL: return { title: "Crea una cuenta", subtitle: "Ingresa tu nombre" };
-            default: return { title: "Crea una contraseña", subtitle: "Usa letras y números" };
+    const handleFormSubmit = async (e: React.BaseSyntheticEvent) => {
+        e.preventDefault();
+        
+        if (step === STEP_EMAIL) {
+            const isEmailValid = await trigger('email');
+            if (isEmailValid) {
+                handleNext(true); 
+            }
+        } else {
+            await onSubmit(e);
         }
-    }
+    };
 
-    const { title, subtitle } = getHeaderInfo();
     return (
         <FormLayout
-            title={title}
-            subtitle={subtitle}
+            title="Iniciar Sesión"
+            subtitle={step === STEP_EMAIL ? "Ingresa tu email para continuar" : "Te damos la bienvenida"}
             actions={
                 <>
-                    {step == STEP_PASSWORD && (
+                    {step === STEP_PASSWORD && (
                         <button className="btn-secondary" type="button" onClick={handleBack}>
-                        Atrás
+                            Atrás
                         </button>
                     )}
                     <button  
@@ -39,9 +50,47 @@ export function LoginForm(){
                 </>
             }
         >
-            <form id='login-form'>
+            <form id='login-form' onSubmit={handleFormSubmit}>
                 {errors.root?.serverError && <p className='field-error-server'>{errors.root.serverError.message}</p>}
-
+                
+                {step === STEP_EMAIL ? (
+                    <>
+                        <InputField 
+                            label="Email" 
+                            id="email" 
+                            type="email"
+                            autoFocus 
+                            {...register('email', { required: 'El email es requerido' })}
+                        />
+                        {errors.email && <span className="error">{errors.email.message}</span>}
+                        <Link to="/forgot-email" className='input-link'>¿Olvidaste tu email?</Link>
+                        <Link to='/register' className='input-link'>¿No tienes cuenta? Registrate</Link>
+                    </>      
+                ) : (
+                    <>
+                        <UserBadge emailOrName={''} />
+                        <InputField 
+                            label="Contraseña" 
+                            id="password" 
+                            type={showPassword ? "text" : "password"}
+                            autoFocus 
+                            {...register('password', { required: 'La contraseña es requerida' })}
+                        />
+                        {errors.password && <span className="error">{errors.password.message}</span>}
+                
+                        <div className="checkbox-group">
+                            <input 
+                                type="checkbox" 
+                                id="showPassword" 
+                                checked={showPassword}
+                                onChange={(e) => setShowPassword(e.target.checked)}
+                            />
+                            <label htmlFor="showPassword">Mostrar contraseña</label>
+                        </div>
+                
+                        <Link to="/forgot-password" className='input-link'>¿Olvidaste tu contraseña?</Link>
+                    </>
+                )}
             </form>
         </FormLayout>
     );

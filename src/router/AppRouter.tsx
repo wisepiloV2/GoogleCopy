@@ -1,7 +1,8 @@
 import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom';
 import { HomePage } from '../pages/HomePage';
-import { LoginForm, ForgotEmail, ForgotPassword } from '../features/auth';
+import { ForgotEmail, ForgotPassword } from '../features/auth';
 import { RegisterForm } from '../features/authV2/RegisterForm';
+import { LoginForm } from '../features/authV2/LoginForm';
 import {ErrorPage} from '../pages/ErrorPage'
 
 const router = createBrowserRouter([
