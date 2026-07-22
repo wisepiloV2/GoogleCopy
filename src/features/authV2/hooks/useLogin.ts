@@ -2,7 +2,6 @@ import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../../context/AuthProvider';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { loginUserByEmailAndPassword } from '../../auth/api/apiUsers';
 import * as z from 'zod';
 
 const loginSchema = z.object({
@@ -35,26 +34,20 @@ export function useLogin() {
   });
 
   const processLogin = async (data: LoginFormData) => {
-      try {
-        const idUser = await loginUserByEmailAndPassword(data.email, data.password);
-        
-        if (idUser instanceof Error) {
-          setError('root.serverError', { type: 'server', message: idUser.message });
-          setTimeout(() => clearErrors('root.serverError'), 5000);
-          
-          return;
-        } 
-        
-        await login(idUser);
-        reset();
-        navigate('/');
+    try {
+      await login(data.email, data.password);
+      reset();
+      navigate('/');
 
-      } catch (error) {
-        const mensaje = error instanceof Error ? error.message : 'Error inesperado en el servidor';
-        setError('root.serverError', { type: 'server', message: mensaje });
-        setTimeout(() => clearErrors('root.serverError'), 5000);
-      }
-    };
+    } catch (error) {
+      const mensaje = error instanceof Error 
+        ? error.message 
+        : 'Ocurrió un error inesperado';
+          
+      setError('root.serverError', { type: 'server', message: mensaje });
+      setTimeout(() => clearErrors('root.serverError'), 5000);
+    }
+  };
 
   return {
     register, 

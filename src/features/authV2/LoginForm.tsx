@@ -5,6 +5,7 @@ import { useFormSteps } from './hooks/useFormSteps';
 import { useLogin } from './hooks/useLogin'
 import { UserBadge } from './components/UserBadge';
 import { useState } from 'react';
+import { ShowPassword } from './components/ShowPassword';
 
 const STEP_EMAIL = 1;
 const STEP_PASSWORD = 2;
@@ -64,7 +65,7 @@ export function LoginForm() {
                             autoFocus 
                             {...register('email')}
                         />
-                        {errors.email && <span className="error">{errors.email.message}</span>}
+                        {errors.email && <p className='field-error'>{errors.email.message}</p>}
                         <Link to="/forgot-email" className='input-link'>¿Olvidaste tu email?</Link>
                         <Link to='/register' className='input-link'>¿No tienes cuenta? Registrate</Link>
                     </>      
@@ -78,17 +79,12 @@ export function LoginForm() {
                             autoFocus 
                             {...register('password')}
                         />
-                        {errors.password && <span className="error">{errors.password.message}</span>}
+                        {errors.password && <p className='field-error'>{errors.password.message}</p>}
                 
-                        <div className="checkbox-group">
-                            <input 
-                                type="checkbox" 
-                                id="showPassword" 
-                                checked={showPassword}
-                                onChange={(e) => setShowPassword(e.target.checked)}
-                            />
-                            <label htmlFor="showPassword">Mostrar contraseña</label>
-                        </div>
+                        <ShowPassword 
+                            show={showPassword} 
+                            setShow={setShowPassword} 
+                        />
                 
                         <Link to="/forgot-password" className='input-link'>¿Olvidaste tu contraseña?</Link>
                     </>

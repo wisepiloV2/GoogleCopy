@@ -3,7 +3,6 @@ import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../../context/AuthProvider';
-import { createUser } from '../../auth/api/apiUsers';
 
 const registerSchema = z.object({
   firstName: z.string()
@@ -33,7 +32,7 @@ export type RegisterFormData = z.infer<typeof registerSchema>;
 
 export function useRegister() {
   const navigate = useNavigate();
-  const { login } = useAuth();
+  const { create } = useAuth();
   
 
   const {
@@ -55,14 +54,18 @@ export function useRegister() {
 
   const processRegistration = async (data: RegisterFormData) => {
     try {
-      const idUser = await createUser(data)
-      await login(idUser);
+      
+      await create(data);
       reset();
       navigate('/');
       
     } catch (error) {
-      const mensaje = error instanceof Error ? error.message : 'Error inesperado en el servidor';
-      setError('root.serverError', { type: 'server', message: mensaje });
+
+      const mensaje = error instanceof Error 
+        ? error.message 
+        : 'Ocurrió un error inesperado';
+      
+        setError('root.serverError', { type: 'server', message: mensaje });
       setTimeout(() => clearErrors('root.serverError'), 5000);
     }
   };

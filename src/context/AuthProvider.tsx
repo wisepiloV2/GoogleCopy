@@ -1,13 +1,14 @@
 import { createContext, useState, useContext, type ReactNode } from 'react';
-import { getUserById, type User } from '../features/auth/api/apiUsers';
+import { getUserByEmailAndPassword, createUser, type User } from '../features/auth/api/apiUsers';
 
 
 interface AuthContextType {
   user: User | null;           
-  isLoggedIn: boolean;         
+  isLogged: boolean;         
   isLoading: boolean;          
-  login: (id: string) => Promise<void>; 
+  login: (email: string, password: string) => Promise<void | Error>; 
   logout: () => void;
+  create: (userData: User) => Promise<void | Error>;
 }
 
 interface AuthProviderProps {
@@ -17,40 +18,57 @@ interface AuthProviderProps {
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export function AuthProvider({ children }: AuthProviderProps) {
-  // 2. Estados principales
   const [user, setUser] = useState<User | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
-  // 3. isLoggedIn se calcula automáticamente (si hay user, es true)
-  const isLoggedIn = user !== null;
+  const isLogged = user !== null;
 
-  // 4. Función de Login (Asíncrona)
-  const login = async (id: string) => {
-    setIsLoading(true); // Iniciamos carga
+  const login = async (email: string, password: string) => {
+    setIsLoading(true);
     try {
-      const fetchedUser = await getUserById(id);
+      const fetchedUser = await getUserByEmailAndPassword(email, password);
+      setUser(fetchedUser);
       
-      if (fetchedUser) {
-        setUser(fetchedUser);
-      } else {
-        // Aquí podrías manejar el error si el usuario no existe (contraseña incorrecta en la vida real)
-        throw new Error('Credenciales incorrectas o usuario no encontrado');
+    } catch (error: any) {
+      if (error.status === 402) {
+        throw new Error('No pudimos encontrar una cuenta con ese email.');
       }
-    } catch (error) {
-      console.error('Error durante el login:', error);
-      throw error; // Lanzamos el error para que el componente del formulario lo muestre
+      
+      if (error.status === 401) {
+        throw new Error('La contraseña es incorrecta.');
+      }
+
+      throw new Error('Ocurrió un error inesperado al intentar iniciar sesión.');
+      
     } finally {
-      setIsLoading(false); // Terminamos carga, pase lo que pase
+      setIsLoading(false);
     }
   };
 
-  // 5. Función de Logout (Síncrona)
   const logout = () => {
     setUser(null);
   };
 
+  const create = async (userData: User) => {
+    setIsLoading(true);
+    try{
+      const fetchedUser = await createUser(userData);
+      setUser(fetchedUser);
+    } catch (error: any){
+
+      if (error.status == 409) {
+        throw new Error(error.message);
+      } else {
+        throw new Error('Ocurrió un error inesperado al intentar iniciar sesión.');
+      }
+
+    } finally {
+      setIsLoading(false);
+    }
+  }
+
   return (
-    <AuthContext.Provider value={{ user, isLoggedIn, isLoading, login, logout }}>
+    <AuthContext.Provider value={{ user, isLogged, isLoading, login, logout, create }}>
       {children}
     </AuthContext.Provider>
   );

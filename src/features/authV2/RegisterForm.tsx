@@ -5,6 +5,8 @@ import { UserBadge } from './components/UserBadge';
 import { useFormSteps } from './hooks/useFormSteps';
 import { useRegister } from './hooks/useRegister';
 import './Form.css';
+import { useState } from 'react';
+import { ShowPassword } from './components/ShowPassword';
 
 const STEP_FULL_NAME = 1;
 const STEP_EMAIL_PHONE = 2;
@@ -44,6 +46,7 @@ export function RegisterForm() {
     const { title, subtitle } = getHeaderInfo();
     const currentFullName = getValues('firstName') + " " + getValues('lastName'); 
     const currentEmail = getValues('email');
+    const [ showPassword, setShowPassword ] = useState(false);
 
     return (
     <FormLayout
@@ -117,7 +120,7 @@ export function RegisterForm() {
                     <InputField 
                         label="Contraseña" 
                         id="password" 
-                        type="password"
+                        type={showPassword ? "text" : "password"}
                         {...register('password')} 
                         autoFocus
                     />
@@ -126,10 +129,15 @@ export function RegisterForm() {
                     <InputField 
                         label="Confirmar contraseña" 
                         id="confirmPassword" 
-                             type="password"
+                        type={showPassword ? "text" : "password"}
                         {...register('confirmPassword')} 
                     />
                     {errors.confirmPassword && <p className='field-error'>{errors.confirmPassword.message}</p>}
+
+                    <ShowPassword
+                        show={showPassword} 
+                        setShow={setShowPassword} 
+                    />
                 </>
             )}
         </form>

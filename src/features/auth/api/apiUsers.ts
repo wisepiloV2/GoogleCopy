@@ -1,5 +1,5 @@
 export interface User {
-  id: string;
+  id?: string;
   firstName: string;
   lastName?: string;
   email: string;
@@ -10,50 +10,46 @@ export interface User {
 }
 
 const mockUsers: User[] = [
+  {id: '1', firstName: 'wisepilo', email: 'wisepilo@gmail.com', phone: '11111111', password: 'Wisepilo1'}
 ];
 
 
-function getUsers(): Promise<User[]> {
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      resolve([...mockUsers]);
-    }, 500);
-  });
-}
-
-function getUserById(id: string): Promise<User | undefined> {
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      const user = mockUsers.find(u => u.id === id);
-      resolve(user);
-    }, 800);
-  });
-}
-
-function loginUserByEmailAndPassword(email: string, password: string): Promise<string | Error> {
-  return new Promise((resolve) => {
+function getUserByEmailAndPassword(email: string, password: string): Promise<User> {
+  return new Promise((resolve, reject) => {
     setTimeout(() => {
       const user = mockUsers.find(u => u.email === email);
       
-      if (!user || user.password !== password) {
-        resolve(new Error("Email o Contraseña incorrecta"));
+      if (!user) {
+        reject({ status: 402, message: "El usuario no existe" });
+      } else if (user.password !== password) {
+        reject({ status: 401, message: "Contraseña incorrecta" });
       } else {
-        resolve(user.id);
+        resolve(user);
       }
     }, 1000); 
   });
 }
 
-function createUser(userData: Omit<User, 'id'>): Promise<string> {
-  return new Promise((resolve) => {
+function createUser(userData: Omit<User, 'id'>): Promise<User> {
+  return new Promise((resolve, reject) => {
     setTimeout(() => {
+      const emailExists = mockUsers.some(user => user.email === userData.email);
+
+      if (emailExists) {
+        return reject({ 
+          status: 409, 
+          message: "Ya existe una cuenta vinculada a este correo electrónico." 
+        });
+      }
+
       const newId = crypto.randomUUID();
       const newUser: User = {
         id: newId, 
         ...userData
       };
+      
       mockUsers.push(newUser);
-      resolve(newId);
+      resolve(newUser); 
     }, 800);
   });
 }
@@ -73,6 +69,33 @@ function updateUser(id: string, updates: Partial<Omit<User, 'id'>>): Promise<Use
   });
 }
 
+export {
+  createUser,
+  getUserByEmailAndPassword,
+  updateUser
+}
+
+/*
+--------------UNUSED FUNCTIONS-----------
+
+function getUsers(): Promise<User[]> {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve([...mockUsers]);
+    }, 500);
+  });
+}
+
+
+function getUserById(id: string): Promise<User | undefined> {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      const user = mockUsers.find(u => u.id === id);
+      resolve(user);
+    }, 800);
+  });
+}
+
 function deleteUser(id: string): Promise<boolean> {
   return new Promise((resolve) => {
     setTimeout(() => {
@@ -87,9 +110,4 @@ function deleteUser(id: string): Promise<boolean> {
     }, 800);
   });
 }
-
-export {
-  getUserById,
-  createUser,
-  loginUserByEmailAndPassword
-}
+*/
