@@ -86,11 +86,28 @@ function forgotPassword(email : string) : Promise<Error | void> {
   }); 
 }
 
+function forgotEmail(phone : string) : Promise<Error | void> {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      const phoneExists = mockUsers.some(user => user.phone === phone);
+
+      if (!phoneExists) {
+        return reject({ 
+          status: 409, 
+          message: "No existe una cuenta vinculada al telefono." 
+        });
+      } 
+      resolve();
+    }, 1000);
+  }); 
+}
+
 export {
   createUser,
   getUserByEmailAndPassword,
   updateUser,
-  forgotPassword
+  forgotPassword,
+  forgotEmail
 }
 
 /*

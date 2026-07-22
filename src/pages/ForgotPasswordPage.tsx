@@ -1,4 +1,4 @@
-import { ForgotPassword } from "../features/authV2";
+import { ForgotPassword } from "../features/auth";
 
 export function ForgotPasswordPage(){
     return (

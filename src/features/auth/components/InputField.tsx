@@ -1,17 +1,19 @@
+import styles from './Form.module.css';
+
 interface InputFieldProps extends React.InputHTMLAttributes<HTMLInputElement> {
   label: string;
   id: string;
 }
 
-export function InputField({ label, id, className = '', ...props }: InputFieldProps) {
+export function InputField({ label, id, ...props }: InputFieldProps) {
   return (
-    <div className="input-group">
-      <label className="input-label" htmlFor={id}>
+    <div className={styles.inputGroup}>
+      <label className={styles.inputLabel} htmlFor={id}>
         {label}
       </label>
       <input 
         id={id} 
-        className={`input-box ${className}`} 
+        className={styles.inputBox} 
         {...props} 
       />
     </div>

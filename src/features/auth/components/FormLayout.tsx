@@ -1,6 +1,6 @@
 import { type ReactNode } from 'react';
 import Logo from '../../../components/logo/Logo'; 
-import './FormLayout.css'
+import styles from './Form.module.css';
 
 interface FormLayoutProps {
   title: string | ReactNode;
@@ -11,23 +11,23 @@ interface FormLayoutProps {
 
 export function FormLayout({ title, subtitle, children, actions }: FormLayoutProps) {
   return (
-    <div className="form-container">
-      <div className="form-card">
+    <div className={styles.formContainer}>
+      <div className={styles.formCard}>
         
-        <div className="card-branding">
+        <div className={styles.cardBranding}>
           <Logo size="40px" />
-          <h2 className="title">{title}</h2>
-          {subtitle && <p className="subtitle">{subtitle}</p>}
+          <h2 className={styles.title}>{title}</h2>
+          {subtitle && <p className={styles.subtitle}>{subtitle}</p>}
         </div>
 
-        <div className="card-form">
+        <div className={styles.cardForm}>
           {children}
         </div>
 
       </div>
 
       {actions && (
-        <div className="form-action">
+        <div className={styles.formAction}>
           {actions}
         </div>
       )}

@@ -26,19 +26,11 @@ export function useFormSteps({ maxSteps, onBack }: UseFormStepsOptions) {
     }
   };
 
-  const handleKeyDown = (e: React.KeyboardEvent, action: () => void) => {
-    if (e.key === 'Enter') {
-      e.preventDefault();
-      action();
-    }
-  };
-
   return {
     step,
     setStep,
     handleNext,
     handleBack,
-    handleKeyDown,
     isFirstStep: step === 1,
     isLastStep: step === maxSteps,
   };

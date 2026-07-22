@@ -3,7 +3,7 @@ import { HomePage } from '../pages/HomePage';
 import { LoginPage } from '../pages/LoginPage';
 import { RegisterPage } from '../pages/RegisterPage';
 import { ForgotPasswordPage } from '../pages/ForgotPasswordPage';
-import { ForgotEmail } from '../features/auth';
+import { ForgotEmailPage } from '../pages/ForgotEmailPage';
 import {ErrorPage} from '../pages/ErrorPage'
 
 const router = createBrowserRouter([
@@ -34,7 +34,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/forgot-email",
-        element: <ForgotEmail />
+        element: <ForgotEmailPage />
       }
     ],
   },
