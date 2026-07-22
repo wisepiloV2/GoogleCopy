@@ -10,7 +10,8 @@ export interface User {
 }
 
 const mockUsers: User[] = [
-  {id: '1', firstName: 'wisepilo', email: 'wisepilo@gmail.com', phone: '11111111', password: 'Wisepilo1'}
+  {id: '1', firstName: 'wisepilo', email: 'wisepilo@gmail.com', phone: '11111111', password: 'Wisepilo1'}, 
+  {id: '2', firstName: 'test', email: 'test@gmail.com', phone: '11111111', password: 'Testing1'}
 ];
 
 
@@ -69,10 +70,27 @@ function updateUser(id: string, updates: Partial<Omit<User, 'id'>>): Promise<Use
   });
 }
 
+function forgotPassword(email : string) : Promise<Error | void> {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      const emailExists = mockUsers.some(user => user.email === email);
+
+      if (!emailExists) {
+        return reject({ 
+          status: 409, 
+          message: "No existe una cuenta vinculada al mail." 
+        });
+      } 
+      resolve();
+    }, 1000);
+  }); 
+}
+
 export {
   createUser,
   getUserByEmailAndPassword,
-  updateUser
+  updateUser,
+  forgotPassword
 }
 
 /*

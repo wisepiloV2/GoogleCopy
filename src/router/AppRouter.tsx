@@ -2,7 +2,8 @@ import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom';
 import { HomePage } from '../pages/HomePage';
 import { LoginPage } from '../pages/LoginPage';
 import { RegisterPage } from '../pages/RegisterPage';
-import { ForgotEmail, ForgotPassword } from '../features/auth';
+import { ForgotPasswordPage } from '../pages/ForgotPasswordPage';
+import { ForgotEmail } from '../features/auth';
 import {ErrorPage} from '../pages/ErrorPage'
 
 const router = createBrowserRouter([
@@ -29,7 +30,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/forgot-password",
-        element: <ForgotPassword />
+        element: <ForgotPasswordPage />
       },
       {
         path: "/forgot-email",
