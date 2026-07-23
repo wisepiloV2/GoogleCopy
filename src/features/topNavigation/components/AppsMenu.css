@@ -14,12 +14,12 @@
   border: none;
   background-color: transparent;
   cursor: pointer;
-  transition: background-color 0.2s;
-  color: #5f6368;
+  transition: background-color 0.2s, color 0.2s; 
+  color: var(--text-secondary);/
 }
 
 .apps-button:hover {
-  background-color: rgba(60, 64, 67, 0.08);
+  background-color: var(--icon-hover-bg); 
 }
 
 .apps-button svg {
@@ -32,10 +32,10 @@
   position: absolute;
   top: 48px;
   right: 0;
-  background-color: #ffffff;
-  border: 1px solid #ccc;
+  background-color: var(--bg-main); 
+  border: 1px solid var(--border-color); 
   border-radius: 20px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--dropdown-shadow); 
   padding: 16px;
   overflow-y: auto;
   z-index: 100;
@@ -51,5 +51,5 @@
   margin-top: 0;       
   margin-bottom: 16px;
   font-size: 1rem;
-  color: #5f6368;
+  color: var(--text-secondary);
 }

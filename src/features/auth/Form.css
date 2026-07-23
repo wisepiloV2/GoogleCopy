@@ -1,31 +1,48 @@
 .input-link {
   display: block;
   margin-top: 10px;
-  color: #3b82f6;
+  color: var(--link-color); 
   font-size: 18px;
   text-decoration: none;
+  transition: color 0.2s; 
 }
 
-.input-link:hover{
-  text-decoration:underline;
+.input-link:hover {
+  text-decoration: underline;
 }
+
 
 .btn-primary {
-  background-color: #3b82f6;
-  color: white;
+  background-color: var(--btn-primary-bg);
+  color: var(--btn-primary-text); 
+  display: inline-block;
+  text-decoration: none;
+  text-align: center;
+  padding: 10px 20px;
+  border-radius: 6px;
+  border: none;
+  font-weight: 500; 
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out, color 0.2s;
 }
 
 .btn-primary:hover {
-  background-color: #2563eb;
+  background-color: var(--btn-primary-hover);
 }
 
 .btn-secondary {
-  background-color: #f3f4f6;
-  color: #111827;
+  background-color: var(--btn-secondary-bg); 
+  color: var(--text-main); 
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out, color 0.2s;
 }
 
 .btn-secondary:hover {
-  background-color: #e5e7eb;
+  background-color: var(--btn-secondary-hover);
 }
 
 .checkbox-group {
@@ -40,40 +57,27 @@
   cursor: pointer;
   width: 16px;
   height: 16px;
+  accent-color: var(--btn-primary-bg);
 }
 
 .checkbox-group label {
   cursor: pointer;
   font-size: 16px;
-  color: #333;
+  color: var(--text-main);
   user-select: none; 
 }
 
-.field-error{
-  color: #cc0000;
+.field-error {
+  color: var(--error-color); 
   padding: 5px 0;
   margin: 0;
+  transition: color 0.2s;
 }
 
-.field-error-server{
-  color: #cc0000;
+.field-error-server {
+  color: var(--error-color); 
   padding: 5px 0;
   margin: 0;
   text-align: center;
-}
-
-.btn-primary {
-  background-color: #3b82f6;
-  color: white;
-  display: inline-block;
-  text-decoration: none;
-  text-align: center;
-  padding: 10px 20px;
-  border-radius: 6px;
-  font-weight: 500; 
-  transition: background-color 0.2s ease-in-out;
-}
-
-.btn-primary:hover {
-  background-color: #2563eb;
+  transition: color 0.2s;
 }

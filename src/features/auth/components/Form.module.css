@@ -3,11 +3,12 @@
   flex-direction: column;
   border-radius: 12px;
   box-sizing: border-box;
-  background-color: #fff;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  background-color: var(--bg-main); 
+  box-shadow: var(--form-shadow);
   padding: 40px 32px;
   max-width: 70vw;
   min-width: 900px;
+  transition: background-color 0.2s, box-shadow 0.2s;
 }
 
 .formCard {
@@ -27,12 +28,13 @@
   margin: 16px 0 8px 0;
   font-size: 38px;
   font-weight: 600;
+  color: var(--text-main); 
 }
 
 .cardBranding .subtitle {
   margin: 0;
   font-size: 20px;
-  color: #666;
+  color: var(--text-secondary);
 }
 
 .cardForm {
@@ -53,7 +55,7 @@
   padding: 10px 20px;
   font-size: 16px;
   border: none;
-  transition: background-color 0.2s ease, transform 0.1s ease;
+  transition: background-color 0.2s ease, transform 0.1s ease, color 0.2s;
   font-family: inherit;
 }
 
@@ -72,35 +74,36 @@
   font-size: 18px;
   padding: 5px 0;
   font-weight: 500;
-  color: #111827;
+  color: var(--text-main); 
 }
 
 .inputBox {
   width: 100%;
   padding: 10px 14px;
   font-size: 18px;
-  border: 1px solid #d1d5db;
+  background-color: var(--input-bg); 
+  color: var(--text-main); 
+  border: 1px solid var(--input-border); 
   border-radius: 6px;
   box-sizing: border-box;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s, color 0.2s;
   font-family: inherit;
 }
 
-.inputBox:focus{
+.inputBox:focus {
   outline: none;
-  border-color: #3b82f6;
-  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+  border-color: var(--input-focus-border); 
+  box-shadow: 0 0 0 3px var(--input-focus-shadow);
 }
 
-.userBadge{
+.userBadge {
   padding: 10px 0;
   margin-bottom: 10px;
-  color: #111827;
+  color: var(--text-main); 
   font-size: 18px;
   text-align: center;
-  border-bottom: 1px solid #d1d5db;
+  border-bottom: 1px solid var(--border-color);
 }
-
 
 .checkboxGroup {
   display: flex;
@@ -114,11 +117,12 @@
   cursor: pointer;
   width: 16px;
   height: 16px;
+  accent-color: var(--btn-primary-bg); 
 }
 
 .checkboxGroup label {
   cursor: pointer;
   font-size: 16px;
-  color: #333;
+  color: var(--text-main);
   user-select: none; 
 }

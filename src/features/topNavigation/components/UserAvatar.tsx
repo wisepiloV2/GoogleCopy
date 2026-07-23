@@ -9,8 +9,8 @@ interface UserAvatarProps {
 }
 
 const avatarButtonStyles: React.CSSProperties = {
-  backgroundColor: '#e53935', 
-  color: 'white',
+  backgroundColor: '#e53935',
+  color: 'white', 
   border: 'none',
   borderRadius: '50%',
   fontWeight: '500',

@@ -1,0 +1,23 @@
+.btn-theme {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  font-size: 20px; 
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  color: var(--text-secondary);
+  outline: none;
+}
+
+.btn-theme:hover {
+  background-color: var(--icon-hover-bg); 
+}
+
+.btn-theme:active {
+  transform: scale(0.9); 
+}

@@ -1,0 +1,61 @@
+:root {
+  --bg-main: #ffffff;
+  --text-main: #202124;
+  --text-secondary: #5f6368; 
+  --border-color: #c5c5c5;
+  --hover-bg: #e7e7e7;
+  --btn-primary-bg: #1a73e8;
+  --btn-primary-hover: #1b66c9;
+  --shadow-color: rgba(32, 33, 36, 0.28);
+  --border-transparent: rgba(223, 225, 229, 0);
+  --dropdown-hover: #f1f3f4;
+  --btn-primary-text: #ffffff;
+  --btn-primary-active: #185abc;
+  --btn-shadow: rgba(60,64,67,0.3);
+  --btn-shadow-hover: rgba(60,64,67,0.15);
+  --icon-hover-bg: rgba(60, 64, 67, 0.08);
+  --dropdown-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --divider-color: #e8eaed;
+  --btn-secondary-bg: #f1f3f4;
+  --btn-secondary-hover: #e2e2e2;
+  --manage-btn-hover: #f8f9fa;
+  --panel-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+  --form-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --input-bg: #ffffff;
+  --input-border: #d1d5db;
+  --input-focus-border: #3b82f6;
+  --input-focus-shadow: rgba(59, 130, 246, 0.15);
+  --error-color: #cc0000;
+  --link-color: #3b82f6;
+}
+
+[data-theme="dark"] {
+  --bg-main: #202124;
+  --text-main: #ffffff;
+  --text-secondary: #9aa0a6;
+  --border-color: #5f6368;
+  --hover-bg: #3c4043;
+  --btn-primary-bg: #8ab4f8;
+  --btn-primary-hover: #aecbfa;
+  --shadow-color: rgba(0, 0, 0, 0.5);
+  --border-transparent: rgba(95, 99, 104, 0);
+  --dropdown-hover: #303134;
+  --btn-primary-text: #202124;
+  --btn-primary-active: #669df6; 
+  --btn-shadow: rgba(0, 0, 0, 0.4);
+  --btn-shadow-hover: rgba(0, 0, 0, 0.2);
+  --icon-hover-bg: rgba(255, 255, 255, 0.1);
+  --dropdown-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+  --divider-color: #3c4043;
+  --btn-secondary-bg: #303134;
+  --btn-secondary-hover: #5f6368; 
+  --manage-btn-hover: #303134; 
+  --panel-shadow: 0 4px 6px rgba(0, 0, 0, 0.5), 0 1px 3px rgba(0, 0, 0, 0.3);
+  --form-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
+  --input-bg: #303134; 
+  --input-border: #5f6368;
+  --input-focus-border: #8ab4f8;
+  --input-focus-shadow: rgba(138, 180, 248, 0.15);
+  --error-color: #f28b82; 
+  --link-color: #8ab4f8;
+}

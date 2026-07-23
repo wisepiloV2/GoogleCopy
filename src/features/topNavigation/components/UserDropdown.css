@@ -3,15 +3,16 @@
   top: 60px; 
   right: 20px;
   width: 340px;
-  background-color: #ffffff;
+  background-color: var(--bg-main); 
   border-radius: 24px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
-  border: 1px solid #dadce0;
+  box-shadow: var(--panel-shadow); 
+  border: 1px solid var(--border-color); 
   font-family: 'Roboto', 'Segoe UI', sans-serif;
-  color: #202124;
+  color: var(--text-main); 
   z-index: 1000;
   padding: 16px 0;
   overflow: hidden;
+  transition: background-color 0.2s, border-color 0.2s, color 0.2s; 
 }
 
 .dropdown-closeBtn {
@@ -26,16 +27,16 @@
   border-radius: 50%;
   width: 28px;
   height: 28px;
-  background-color: #f1f3f4; 
-  color: #5f6368;
+  background-color: var(--btn-secondary-bg);
+  color: var(--text-secondary);
   cursor: pointer; 
-  transition: background-color 0.2s ease;
+  transition: background-color 0.2s ease, color 0.2s ease;
   line-height: 0;
   padding-bottom: 2px;
 }
 
 .dropdown-closeBtn:hover {
-  background-color: #e2e2e2;
+  background-color: var(--btn-secondary-hover); 
 }
 
 .dropdown-header {
@@ -54,13 +55,13 @@
 
 .dropdown-email {
   font-size: 1rem;
-  color: #5f6368;
+  color: var(--text-secondary); 
   margin-top: 4px;
 }
 
-.dropdown-user{
-  background-color: #e53935;
-  color: white;
+.dropdown-user {
+  background-color: #e53935; 
+  color: white; 
   border: none;
   border-radius: 50%;
   font-weight: 500;
@@ -82,25 +83,25 @@
 }
 
 .btn-manage-account {
-  background-color: #ffffff;
-  border: 1px solid #dadce0;
+  background-color: var(--bg-main);
+  border: 1px solid var(--border-color); 
   border-radius: 100px;
   padding: 10px 20px;
   font-size: 1rem;
   font-weight: 500;
-  color: #1a73e8; 
+  color: var(--btn-primary-bg); 
   cursor: pointer;
-  transition: background-color 0.2s;
+  transition: background-color 0.2s, border-color 0.2s, color 0.2s;
 }
 
 .btn-manage-account:hover {
-  background-color: #f8f9fa;
+  background-color: var(--manage-btn-hover); 
 }
 
 .dropdown-divider {
   border: 0;
   height: 1px;
-  background-color: #e8eaed;
+  background-color: var(--divider-color);
   margin: 0;
 }
 
@@ -113,15 +114,15 @@
 .dropdown-menu-item {
   padding: 12px 24px;
   font-size: 0.9rem;
-  color: #3c4043;
+  color: var(--text-main); 
   display: flex;
   align-items: center;
   cursor: pointer;
-  transition: background-color 0.2s;
+  transition: background-color 0.2s, color 0.2s;
 }
 
 .dropdown-menu-item:hover {
-  background-color: #e2e2e2;
+  background-color: var(--dropdown-hover); 
 }
 
 .dropdown-icon {
@@ -138,14 +139,16 @@
   gap: 12px;
   padding: 16px 24px 4px;
   font-size: 12px;
-  color: #5f6368;
+  color: var(--text-secondary); 
 }
 
 .dropdown-footer a {
-  color: #5f6368;
+  color: var(--text-secondary); 
   text-decoration: none;
+  transition: color 0.2s;
 }
 
 .dropdown-footer a:hover {
   text-decoration: underline;
+  color: var(--text-main); 
 }

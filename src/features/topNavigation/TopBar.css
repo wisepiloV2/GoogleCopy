@@ -32,12 +32,12 @@
 }
 
 .profile-button:hover {
-  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+  box-shadow: 0 1px 3px var(--btn-shadow);
 }
 
 .sign-in-button {
-  background-color: #1a73e8;
-  color: #fff;
+  background-color: var(--btn-primary-bg);
+  color: var(--btn-primary-text); 
   border: 1px solid transparent;
   border-radius: 30px; 
   padding: 9px 23px;
@@ -48,17 +48,16 @@
   cursor: pointer;
   line-height: 16px;
   text-align: center;
-  transition: background-color 0.15s, box-shadow 0.15s;
+  transition: background-color 0.15s, box-shadow 0.15s, color 0.15s;
   text-decoration: none;
 }
 
 .sign-in-button:hover {
-  background-color: #1b66c9; 
-  box-shadow: 0 1px 2px 0 rgba(60,64,67,0.3), 0 1px 3px 1px rgba(60,64,67,0.15);
+  background-color: var(--btn-primary-hover); 
+  box-shadow: 0 1px 2px 0 var(--btn-shadow), 0 1px 3px 1px var(--btn-shadow-hover);
 }
 
-
 .sign-in-button:active {
-  background-color: #185abc; 
-  box-shadow: 0 1px 2px 0 rgba(60,64,67,0.3);
+  background-color: var(--btn-primary-active); 
+  box-shadow: 0 1px 2px 0 var(--btn-shadow);
 }

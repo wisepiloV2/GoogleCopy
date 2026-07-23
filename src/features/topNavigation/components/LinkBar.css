@@ -1,12 +1,13 @@
-.link-bar-container{
+.link-bar-container {
     display: flex;
     gap: 10px;
 }
 
-.link-bar-link{
-    color: #202124;
+.link-bar-link {
+    color: var(--text-main);
     text-decoration: none;
     margin-right: 16px;
+    transition: color 0.2s;
 }
 
 .link-bar-link:hover {

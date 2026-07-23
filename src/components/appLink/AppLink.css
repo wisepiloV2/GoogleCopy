@@ -6,12 +6,12 @@
   padding: 12px 12px; 
   text-decoration: none;
   border-radius: 8px;
-  color: #3c4043;
+  color: var(--text-main);
   transition: background-color 0.2s;
 }
 
 .app-item:hover {
-  background-color: #e7e7e7;
+  background-color: var(--hover-bg);
 }
 
 .app-icon {
