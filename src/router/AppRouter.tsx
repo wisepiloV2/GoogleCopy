@@ -6,6 +6,12 @@ import { ForgotPasswordPage } from '../pages/ForgotPasswordPage';
 import { ForgotEmailPage } from '../pages/ForgotEmailPage';
 import {ErrorPage} from '../pages/ErrorPage'
 
+
+/*------Test components-------*/
+import SearchBar from '../components/SearchBar/SearchBar'
+
+/*------Test components-------*/
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -37,7 +43,24 @@ const router = createBrowserRouter([
         element: <ForgotEmailPage />
       }
     ],
-  },
+  }
+  /*------Test components-------*/
+  ,{
+    path: "/test",
+    element: <Outlet />,
+    errorElement: 
+      <ErrorPage 
+        title='Error 404. Pagina no encontrada' 
+        subtitle='La pagina que buscas no existe.'
+      />,
+    children: [
+      { 
+        index: true, 
+        element: <SearchBar />   
+      },
+    ]
+  }
+  /*------Test components-------*/
 ]);
 
 export const AppRouter = () => {
