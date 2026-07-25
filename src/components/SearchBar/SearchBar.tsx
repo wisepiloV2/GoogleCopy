@@ -16,7 +16,6 @@ interface SearchDropdownProps {
 
 const SearchDropdown = ({ suggestions, onSelect }: SearchDropdownProps) => (
     <div className={Styles.searchDropdown}>
-        <hr className={Styles.searchDropdownDivider} />
         <ul className={Styles.searchDropdownList} >
             {suggestions.length > 0 ? (
                 suggestions.map((suggestion, index) => (
@@ -39,7 +38,7 @@ const SearchDropdown = ({ suggestions, onSelect }: SearchDropdownProps) => (
 );
 
 export default function SearchBar() {
-    const [isFocused, setIsFocused] = useState(true);
+    const [isFocused, setIsFocused] = useState(false);
     const [query, setQuery] = useState('');
 
     const mockSuggestions = [

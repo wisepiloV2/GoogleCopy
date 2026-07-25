@@ -14,7 +14,6 @@
   /* Dropdown */
   --search-dropdown-bg: #ffffff;
   --search-dropdown-hover: #f1f3f4;
-  --search-dropdown-divider: #dfe1e5;
   
   /* Dropdown Text */
   --search-text-main: #202124;
@@ -36,8 +35,7 @@
   
   /* Dropdown */
   --search-dropdown-bg: #2e2e2e;
-  --search-dropdown-hover: #303134;
-  --search-dropdown-divider: #5f6368;
+  --search-dropdown-hover: #494949;
   
   /* Dropdown Text */
   --search-text-main: #e8eaed;
@@ -60,7 +58,7 @@
   height: 46px;
   padding: 0 16px;
   background-color: var(--search-bg);
-  outline: 1px solid var(--search-border);
+  border: 1px solid var(--search-border);
   border-radius: 24px;
   transition: box-shadow 200ms ease-in-out, background-color 0.2s, border-color 0.2s;
   box-sizing: border-box;
@@ -106,8 +104,10 @@
 }
 
 .searchForm.focused {
-  border-bottom-left-radius: 0;
+  border-top-left-radius: 24px;
+  border-top-right-radius: 24px;
   border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
   background-color: var(--search-bg-focused);
   border-color: var(--search-border-transparent); 
   box-shadow: 0 4px 6px var(--search-shadow);
@@ -115,9 +115,9 @@
 
 .searchDropdown {
   position: absolute;
-  top: 44px;
-  width: 100%;
-  left: 0;
+  top: 46px; 
+  width: calc(100% + 2px);
+  left: -1px; 
   box-sizing: border-box;
   background-color: var(--search-dropdown-bg);
   border: 1px solid var(--search-border-transparent);
@@ -126,13 +126,6 @@
   box-shadow: 0 4px 6px var(--search-shadow);
   padding-bottom: 10px;
   z-index: 100;
-}
-
-.searchDropdownDivider {
-  border-top: 1px solid var(--search-dropdown-divider);
-  position: absolute;
-  top: -5px;
-  width: 100%;
 }
 
 .searchDropdownList {
