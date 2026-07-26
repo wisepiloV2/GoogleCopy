@@ -8,7 +8,8 @@ import {ErrorPage} from '../pages/ErrorPage'
 
 
 /*------Test components-------*/
-import {TopBar, LinkBar} from '../features/topNavigation/'
+
+import { AccountSettings } from '../features/account';
 
 /*------Test components-------*/
 
@@ -56,7 +57,7 @@ const router = createBrowserRouter([
     children: [
       { 
         index: true, 
-        element: <TopBar><LinkBar /></TopBar>  
+        element: <AccountSettings />  
       },
     ]
   }
