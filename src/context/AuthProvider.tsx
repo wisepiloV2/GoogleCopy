@@ -1,5 +1,5 @@
 import { createContext, useState, useContext, type ReactNode } from 'react';
-import { getUserByEmailAndPassword, createUser, type User } from '../features/auth/api/apiUsers';
+import { getUserByEmailAndPassword, createUser, type User, updateUser } from '../features/auth/api/apiUsers';
 
 
 interface AuthContextType {
@@ -9,6 +9,7 @@ interface AuthContextType {
   login: (email: string, password: string) => Promise<void | Error>; 
   logout: () => void;
   create: (userData: User) => Promise<void | Error>;
+  update: (userData: Partial<User>) => Promise<void | ErrorConstructor>
 }
 
 interface AuthProviderProps {
@@ -67,8 +68,30 @@ export function AuthProvider({ children }: AuthProviderProps) {
     }
   }
 
+  const update = async (userData: Partial<User>) => {
+    setIsLoading(true);
+    try {
+      if (!user) {
+        throw new Error('No se encontró un usuario autenticado para actualizar.');
+      }
+
+      const userId = user.id; 
+      const userUpdated = await updateUser(userId, userData);
+      
+      setUser(userUpdated);
+    } catch (error: any) {
+      if (error.status === 409) {
+        throw new Error(error.message);
+      } else {
+        throw new Error('Ocurrió un error inesperado al intentar actualizar los datos.');
+      }
+    } finally {
+      setIsLoading(false);
+    }
+  }
+
   return (
-    <AuthContext.Provider value={{ user, isLogged, isLoading, login, logout, create }}>
+    <AuthContext.Provider value={{ user, isLogged, isLoading, login, logout, create, update }}>
       {children}
     </AuthContext.Provider>
   );

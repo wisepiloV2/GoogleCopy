@@ -1,5 +1,5 @@
 export interface User {
-  id?: string;
+  id: string;
   firstName: string;
   lastName?: string;
   email: string;
@@ -56,16 +56,19 @@ function createUser(userData: Omit<User, 'id'>): Promise<User> {
 }
 
 function updateUser(id: string, updates: Partial<Omit<User, 'id'>>): Promise<User | null> {
-  return new Promise((resolve) => {
+  return new Promise((resolve, reject) => {
     setTimeout(() => {
-      const index = mockUsers.findIndex(u => u.id === id);
+      const userIndex = mockUsers.findIndex(u => u.id === id);
       
-      if (index === -1) {
-        return resolve(null);
+      if (userIndex === -1) {
+        return reject({ 
+          status: 404, 
+          message: "Error al encontrar el usuario." 
+        });
       }
 
-      mockUsers[index] = { ...mockUsers[index], ...updates };
-      resolve(mockUsers[index]);
+      mockUsers[userIndex] = { ...mockUsers[userIndex], ...updates };
+      resolve(mockUsers[userIndex]);
     }, 800);
   });
 }

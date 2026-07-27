@@ -92,7 +92,7 @@ function PasswordEditableItem({ label, onInitChange }) {
 
 
 export default function PersonalInfo() {
-  const { user } = usePersonalInfo();
+  const { user, updateEmail, updateFirstName, updateLastName, updatePassword, updatePhone } = usePersonalInfo();
 
   const handleUpdate = (field, newValue) => {
     console.log(`Actualizando ${field} con:`, newValue);
@@ -118,19 +118,24 @@ export default function PersonalInfo() {
           <EditableItem 
             label="Nombre" 
             value={user?.firstName} 
-            onSave={(val) => handleUpdate('name', val)} 
+            onSave={updateFirstName} 
+          />
+          <EditableItem 
+            label="Apellido" 
+            value={user?.lastName} 
+            onSave={updateLastName} 
           />
           <EditableItem 
             label="Correo" 
             value={user?.email} 
             type="email"
-            onSave={(val) => handleUpdate('email', val)} 
+            onSave={updateEmail} 
           />
           <EditableItem 
             label="Teléfono" 
             value={user?.phone} 
             type="tel"
-            onSave={(val) => handleUpdate('phone', val)} 
+            onSave={updatePhone} 
           />
           <PasswordEditableItem 
             label="Contraseña"
