@@ -1,49 +1,142 @@
+import { useState } from 'react';
 import { usePersonalInfo } from '../hooks/usePersonalInfo';
+import styles from './PersonalInfo.module.css';
 
-export default function PersonalInfo() {
-  const { userData, updateAvatar } = usePersonalInfo();
+function EditableItem({ label, value, onSave, type = 'text' }) {
+  const [isEditing, setIsEditing] = useState(false);
+  const [inputValue, setInputValue] = useState(value);
 
-  const IconCamera = () => (
-    <svg className="icon-small" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" />
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 13a3 3 0 11-6 0 3 3 0 016 0z" />
-    </svg>
-  );
+  const handleSave = () => {
+    onSave(inputValue);
+    setIsEditing(false);
+  };
+
+  const handleCancel = () => {
+    setInputValue(value); 
+    setIsEditing(false);
+  };
 
   return (
-    <div className="fade-in">
-      <div className="profile-header">
-        <div className="avatar-wrapper">
-          <div className="avatar">{userData.initial}</div>
-          <button className="avatar-edit-btn" onClick={updateAvatar}>
-            <IconCamera />
-          </button>
+    <div className={styles.itemContainer}>
+      <div className={styles.listItem}>
+        <span className={styles.label}>{label}</span>
+        <span className={styles.value}>{value}</span>
+        <button className={styles.editButton} onClick={() => setIsEditing(!isEditing)}>
+          {isEditing ? 'Cerrar' : 'Editar'}
+        </button>
+      </div>
+      
+      {/* Sección Desplegable */}
+      {isEditing && (
+        <div className={styles.editDropdown}>
+          <input 
+            type={type} 
+            value={inputValue} 
+            onChange={(e) => setInputValue(e.target.value)} 
+            className={styles.inputField}
+          />
+          <div className={styles.actionButtons}>
+            <button onClick={handleCancel} className={styles.cancelBtn}>Cancelar</button>
+            <button onClick={handleSave} className={styles.saveBtn}>Guardar</button>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
+
+function PasswordEditableItem({ label, onInitChange }) {
+  const [isEditing, setIsEditing] = useState(false);
+  const [password, setPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
+
+  return (
+    <div className={styles.itemContainer}>
+      <div className={styles.listItem}>
+        <span className={styles.label}>{label}</span>
+        <span className={styles.value}>••••••••</span>
+        <button className={styles.editButton} onClick={() => setIsEditing(!isEditing)}>
+          {isEditing ? 'Cerrar' : 'Editar'}
+        </button>
+      </div>
+      
+      {isEditing && (
+        <div className={styles.editDropdown}>
+          <p className={styles.subtitle}>Ingresa tu nueva contraseña</p>
+          <div className={styles.passwordInputWrapper}>
+            <input 
+              type={showPassword ? 'text' : 'password'} 
+              value={password} 
+              onChange={(e) => setPassword(e.target.value)} 
+              className={styles.inputField}
+              placeholder="Nueva contraseña"
+            />
+            <button 
+              type="button"
+              className={styles.showPasswordBtn} 
+              onClick={() => setShowPassword(!showPassword)}
+            >
+              {showPassword ? 'Ocultar' : 'Mostrar'}
+            </button>
+          </div>
+          <div className={styles.actionButtons}>
+            <button onClick={() => setIsEditing(false)} className={styles.cancelBtn}>Cancelar</button>
+            <button onClick={() => onInitChange(password)} className={styles.saveBtn}>Siguiente</button>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
+
+export default function PersonalInfo() {
+  const { userData } = usePersonalInfo();
+
+  const handleUpdate = (field, newValue) => {
+    console.log(`Actualizando ${field} con:`, newValue);
+  };
+
+  return (
+    <div className={styles.fadeIn}>
+      <div className={styles.profileHeader}>
+        <div className={styles.avatarWrapper}>
+          <div className={styles.avatar}>{userData.initial}</div>
         </div>
         <h2>{userData.name}</h2>
-        <p className="subtitle">{userData.email}</p>
+        <p className={styles.subtitle}>{userData.email}</p>
       </div>
 
-      <div className="data-card">
-        <div className="data-card-header">
+      <div className={styles.dataCard}>
+        <div className={styles.dataCardHeader}>
           <h3>Información básica</h3>
-          <p className="subtitle">Algunos de estos datos pueden ser visibles para otras personas.</p>
+          <p className={styles.subtitle}>Algunos de estos datos pueden ser visibles para otras personas.</p>
         </div>
-        <div className="data-list">
-          <div className="list-item">
-            <span className="label">Nombre</span>
-            <span className="value">{userData.name}</span>
-            <span className="arrow">›</span>
-          </div>
-          <div className="list-item">
-            <span className="label">Correo</span>
-            <span className="value">{userData.email}</span>
-            <span className="arrow">›</span>
-          </div>
-          <div className="list-item">
-            <span className="label">Teléfono</span>
-            <span className="value">{userData.phone}</span>
-            <span className="arrow">›</span>
-          </div>
+        
+        <div className={styles.dataList}>
+          <EditableItem 
+            label="Nombre" 
+            value={userData.name} 
+            onSave={(val) => handleUpdate('name', val)} 
+          />
+          <EditableItem 
+            label="Correo" 
+            value={userData.email} 
+            type="email"
+            onSave={(val) => handleUpdate('email', val)} 
+          />
+          <EditableItem 
+            label="Teléfono" 
+            value={userData.phone} 
+            type="tel"
+            onSave={(val) => handleUpdate('phone', val)} 
+          />
+          <PasswordEditableItem 
+            label="Contraseña"
+            onInitChange={(newPass) => {
+            }}
+          />
         </div>
       </div>
     </div>

@@ -5,7 +5,6 @@ import { useAuth } from '../../context/AuthProvider';
 import AppsMenu from './components/AppsMenu';
 import UserAvatar from './components/UserAvatar';
 import UserDropdown from './components/UserDropdown';
-import { BtnTheme } from '../../components/btnTheme/BtnTheme';
 
 interface TopbarProps {
   children: ReactNode;
@@ -21,7 +20,6 @@ export function TopBar({ children }: TopbarProps) {
             {children}
             
             <div className="top-bar-actions">
-                <BtnTheme />
                 <AppsMenu />
                 {user ? (
                     <UserAvatar 

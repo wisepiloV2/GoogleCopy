@@ -1,10 +1,11 @@
 import { useTheme } from "../../../context/ThemeContextType";
+import styles from "./Appearance.module.css";
 
 export default function Appearance() {
   const { theme, toggleTheme } = useTheme();
 
   const ActiveBadge = () => (
-    <div className="active-badge">
+    <div className={styles.activeBadge}>
       <svg viewBox="0 0 20 20" fill="currentColor">
         <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
       </svg>
@@ -12,26 +13,28 @@ export default function Appearance() {
   );
 
   return (
-    <div className="fade-in">
+    <div className={styles.fadeIn}>
       <h2>Aspecto</h2>
-      <p className="subtitle mb-large">Elige cómo quieres que se vea la interfaz de tu cuenta.</p>
+      <p className={`${styles.subtitle} ${styles.mbLarge}`}>
+        Elige cómo quieres que se vea la interfaz de tu cuenta.
+      </p>
       
-      <div className="theme-grid">
+      <div className={styles.themeGrid}>
         <button 
           onClick={toggleTheme}
-          className={`theme-card ${theme === 'light' ? 'active' : ''}`}
+          className={`${styles.themeCard} ${theme === 'light' ? styles.active : ''}`}
         >
           {theme === 'light' && <ActiveBadge />}
-          <div className="theme-icon light">☀️</div>
+          <div className={`${styles.themeIcon} ${styles.light}`}>☀️</div>
           <span>Tema Claro</span>
         </button>
 
         <button 
           onClick={toggleTheme}
-          className={`theme-card ${theme === 'dark' ? 'active' : ''}`}
+          className={`${styles.themeCard} ${theme === 'dark' ? styles.active : ''}`}
         >
           {theme === 'dark' && <ActiveBadge />}
-          <div className="theme-icon dark">🌙</div>
+          <div className={`${styles.themeIcon} ${styles.dark}`}>🌙</div>
           <span>Tema Oscuro</span>
         </button>
       </div>
