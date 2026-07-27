@@ -92,7 +92,7 @@ function PasswordEditableItem({ label, onInitChange }) {
 
 
 export default function PersonalInfo() {
-  const { userData } = usePersonalInfo();
+  const { user } = usePersonalInfo();
 
   const handleUpdate = (field, newValue) => {
     console.log(`Actualizando ${field} con:`, newValue);
@@ -102,10 +102,10 @@ export default function PersonalInfo() {
     <div className={styles.fadeIn}>
       <div className={styles.profileHeader}>
         <div className={styles.avatarWrapper}>
-          <div className={styles.avatar}>{userData.initial}</div>
+          <div className={styles.avatar}>{user?.firstName.charAt(0)}</div>
         </div>
-        <h2>{userData.name}</h2>
-        <p className={styles.subtitle}>{userData.email}</p>
+        <h2>{user?.firstName} {user?.lastName}</h2>
+        <p className={styles.subtitle}>{user?.email}</p>
       </div>
 
       <div className={styles.dataCard}>
@@ -117,18 +117,18 @@ export default function PersonalInfo() {
         <div className={styles.dataList}>
           <EditableItem 
             label="Nombre" 
-            value={userData.name} 
+            value={user?.firstName} 
             onSave={(val) => handleUpdate('name', val)} 
           />
           <EditableItem 
             label="Correo" 
-            value={userData.email} 
+            value={user?.email} 
             type="email"
             onSave={(val) => handleUpdate('email', val)} 
           />
           <EditableItem 
             label="Teléfono" 
-            value={userData.phone} 
+            value={user?.phone} 
             type="tel"
             onSave={(val) => handleUpdate('phone', val)} 
           />
