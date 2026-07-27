@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { useAuth } from '../../../context/AuthProvider';
 import './UserDropdown.css'; 
 
@@ -28,9 +29,9 @@ export default function UserDropdown({ isOpen, onClose }: UserDropdownProps) {
       </div>
 
       <div className="dropdown-manage">
-        <button className="btn-manage-account">
+        <Link to={'/settings'} className="btn-manage-account">
           Gestionar tu cuenta
-        </button>
+        </Link>
       </div>
 
       <hr className="dropdown-divider" />

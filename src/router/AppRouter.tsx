@@ -5,13 +5,8 @@ import { RegisterPage } from '../pages/RegisterPage';
 import { ForgotPasswordPage } from '../pages/ForgotPasswordPage';
 import { ForgotEmailPage } from '../pages/ForgotEmailPage';
 import {ErrorPage} from '../pages/ErrorPage'
-
-
-/*------Test components-------*/
-
-import { AccountSettings } from '../features/account';
-
-/*------Test components-------*/
+import { SettingsPage } from '../pages/SettingsPage';
+import { ProtectedRoute } from '../components/ProtectedRoute/ProtectedRoute';
 
 const router = createBrowserRouter([
   {
@@ -45,10 +40,9 @@ const router = createBrowserRouter([
       }
     ],
   }
-  /*------Test components-------*/
   ,{
-    path: "/test",
-    element: <Outlet />,
+    path: "/settings",
+    element: <ProtectedRoute />, 
     errorElement: 
       <ErrorPage 
         title='Error 404. Pagina no encontrada' 
@@ -57,11 +51,10 @@ const router = createBrowserRouter([
     children: [
       { 
         index: true, 
-        element: <AccountSettings />  
+        element: <SettingsPage />  
       },
     ]
   }
-  /*------Test components-------*/
 ]);
 
 export const AppRouter = () => {

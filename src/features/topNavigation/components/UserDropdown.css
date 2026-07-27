@@ -92,6 +92,9 @@
   color: var(--btn-primary-bg); 
   cursor: pointer;
   transition: background-color 0.2s, border-color 0.2s, color 0.2s;
+  text-decoration: none;  
+  display: inline-block; 
+  text-align: center; 
 }
 
 .btn-manage-account:hover {
