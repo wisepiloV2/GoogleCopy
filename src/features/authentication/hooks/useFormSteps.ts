@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useCallback, useState, type KeyboardEvent  } from 'react';
 import { useFormContext } from 'react-hook-form';
 
 interface UseFormStepsOptions {
@@ -34,11 +34,26 @@ export function useFormSteps({maxSteps, fieldsByStep, onBack}: UseFormStepsOptio
     }
   };
 
+  const handleKeyDown = useCallback(
+    (event: KeyboardEvent<HTMLElement>) => {
+      if (event.key !== 'Enter') {
+        return;
+      }
+
+      if (step < maxSteps) {
+        event.preventDefault();
+        void nextStep();
+      }
+    },
+    [step, maxSteps, nextStep],
+  );
+
   return {
     step,
     setStep,
     nextStep,
     handleBack,
+    handleKeyDown,
     isFirstStep: step === 1,
     isLastStep: step === maxSteps,
   };

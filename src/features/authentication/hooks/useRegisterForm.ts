@@ -2,7 +2,8 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { registerUser } from '../api/registerApi';
+import { useAuth } from '@/context/AuthContext';
+import { useNavigate } from 'react-router-dom';
 
 const registerSchema = z.object({
   username: z.string()
@@ -30,6 +31,8 @@ export type RegisterFormData = z.infer<typeof registerSchema>;
 export function useRegisterForm() {
   const [isLoading, setIsLoading] = useState(false);
   const [apiError, setApiError] = useState<string | null>(null);
+  const { register } = useAuth();
+  const navigate = useNavigate();
 
   const methods = useForm<RegisterFormData>({
     resolver: zodResolver(registerSchema),
@@ -47,10 +50,10 @@ export function useRegisterForm() {
 
     try {
       const { confirmPassword, ...requestData } = data;
-      const response = await registerUser(requestData);
+      const response = await register(requestData);
       console.log("Usuario registrado con éxito: ", response);
       reset();
-
+      navigate('/');
     } catch (error: any) {
       setApiError(error.message || 'Error desconocido al registrar.');
     } finally {

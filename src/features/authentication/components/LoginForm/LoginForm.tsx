@@ -1,10 +1,9 @@
 import { useState } from "react";
-import { useFormSteps } from "../hooks/useFormSteps";
+import { useFormSteps } from "../../hooks/useFormSteps";
 import { useFormContext } from "react-hook-form";
-import { InputField } from './InputField';
+import { InputField } from "../InputField";
 import styles from './LoginForm.module.css'
-import { Button } from "../../../components/Button/Button";
-import { required } from "zod/v4-mini";
+import { Button } from "@/components/Button/Button";
 
 const STEP_EMAIL = 1;
 const STEP_PASSWORD = 2;
@@ -17,6 +16,7 @@ export function LoginForm({ isLoading } : { isLoading?: boolean }){
     step,
     nextStep,
     handleBack,
+    handleKeyDown,
     isFirstStep,
     isLastStep,
   } = useFormSteps({
@@ -28,7 +28,7 @@ export function LoginForm({ isLoading } : { isLoading?: boolean }){
   });
 
   return (
-    <div className={styles.container}>
+    <div className={styles.container} onKeyDown={handleKeyDown}>
       {step === STEP_EMAIL && (
         <InputField
           label="Email"

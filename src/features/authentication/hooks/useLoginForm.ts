@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { loginUser } from '../api/loginApi';
+import { useAuth } from '@/context/AuthContext';
+import { useNavigate } from 'react-router-dom';
+
 
 interface LoginData {
   email: string;
@@ -10,6 +12,8 @@ interface LoginData {
 export function useLoginForm() {
   const [isLoading, setIsLoading] = useState(false);
   const [apiError, setApiError] = useState<string | null>(null);
+  const { login } = useAuth();
+  const navigate = useNavigate();
 
   const methods = useForm<LoginData>({
     defaultValues: {
@@ -23,9 +27,10 @@ export function useLoginForm() {
     setIsLoading(true);
     setApiError(null);
     try {
-      const response = await loginUser(data);
+      const response = await login(data);
       console.log("Usuario logeado con éxito: ", response);
       reset();
+      navigate('/');
     } catch (error: any) {
       setApiError(error.message || 'Error desconocido al registrar.');
     } finally {

@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { useFormContext } from 'react-hook-form';
-import { useFormSteps } from '../hooks/useFormSteps';
-import { Button } from '../../../components/Button/Button';
+import { useFormSteps } from '../../hooks/useFormSteps';
+import { Button } from '@/components/Button/Button';
 import styles from './RegisterForm.module.css';
-import { InputField } from './InputField';
+import { InputField } from '../InputField';
 
 const STEP_USERNAME = 1;
 const STEP_CONTACT_INFO = 2; 
@@ -17,6 +17,7 @@ export function RegisterForm({ isLoading } : { isLoading?: boolean }) {
     step,
     nextStep,
     handleBack,
+    handleKeyDown,
     isFirstStep,
     isLastStep,
   } = useFormSteps({
@@ -29,7 +30,7 @@ export function RegisterForm({ isLoading } : { isLoading?: boolean }) {
   });
 
   return (
-    <div className={styles.container}>
+    <div className={styles.container} onKeyDown={handleKeyDown}>
       {step === STEP_USERNAME && (
         <InputField
           label="Nombre de Usuario"

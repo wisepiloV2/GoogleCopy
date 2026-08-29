@@ -1,0 +1,15 @@
+.linkBarContainer {
+  display: flex;
+  gap: var(--space-3); 
+}
+
+.linkBarLink {
+  color: var(--text-primary); 
+  text-decoration: none;
+  margin-right: var(--space-4);
+  transition: color var(--transition-base); 
+}
+
+.linkBarLink:hover {
+  text-decoration: underline;
+}
