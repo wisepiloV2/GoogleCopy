@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import styles from './AppsMenu.module.css';
 import AppLink from "./AppLink";
-import { Button } from "../../Button/Button";
 
 interface AppItem {
   name: string;
@@ -46,12 +45,12 @@ export default function AppsMenu() {
 
   return (
     <div className={styles.appsMenuContainer} ref={menuRef}>
-      <Button
+      <button
         className={styles.appsButton}
         onClick={toggleMenu}
       >
         <BtnIcon />
-      </Button>
+      </button>
 
       {isOpen && (
         <div className={styles.appsDropdown}>

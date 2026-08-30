@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -43,6 +43,15 @@ export function useRegisterForm() {
   });
 
   const { handleSubmit, reset } = methods;
+
+  useEffect(() => {
+    if (apiError) {
+      const timer = setTimeout(() => {
+        setApiError(null); 
+      }, 4000); 
+      return () => clearTimeout(timer);
+    }
+  }, [apiError]);
 
   const onSubmit = async (data: RegisterFormData) => {
     setIsLoading(true);

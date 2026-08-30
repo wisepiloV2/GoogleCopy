@@ -4,6 +4,7 @@ import { useFormContext } from "react-hook-form";
 import { InputField } from "../InputField";
 import styles from './LoginForm.module.css'
 import { Button } from "@/components/Button/Button";
+import { Link } from 'react-router-dom';
 
 const STEP_EMAIL = 1;
 const STEP_PASSWORD = 2;
@@ -30,12 +31,16 @@ export function LoginForm({ isLoading } : { isLoading?: boolean }){
   return (
     <div className={styles.container} onKeyDown={handleKeyDown}>
       {step === STEP_EMAIL && (
+        <>
         <InputField
           label="Email"
           placeholder="Escribe tu email"
           error={errors.email?.message as string}
           {...register('email', { required: 'El email es obligatorio' })}
         />
+        <Link to='/auth/register' className={styles.link}>¿No tienes una cuenta? Registrate</Link>
+        </>
+
       )}
 
       {step === STEP_PASSWORD && (
@@ -54,6 +59,7 @@ export function LoginForm({ isLoading } : { isLoading?: boolean }){
           </label>
         </>
       )}
+      
 
       <div className={styles.buttons}>
         {!isFirstStep && (

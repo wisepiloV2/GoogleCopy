@@ -1,6 +1,7 @@
 import { MainLayout } from "../../components/Layout/MainLayout";
 import { LoginForm, useLoginForm } from "../../features/authentication";
 import { FormProvider } from 'react-hook-form';
+import GoogleLogo from '@/components/GoogleLogo/GoogleLogo'; // Asumo esta ruta por tu código anterior
 import styles from './LoginPage.module.css';
 
 export function LoginPage() {
@@ -8,19 +9,28 @@ export function LoginPage() {
   
   return (
     <MainLayout>
-      {isLoading && <div className={styles.loadingBar}></div>}
-
       <div className={styles.pageContainer}>
         
-        <h1 className={styles.title}>Ingresar</h1>
-        
-        {apiError && <p className={styles.errorMessage}>{apiError}</p>}
+        <div className={styles.loginCard}>
+          {isLoading && <div className={styles.loadingBar}></div>}
+          
+          <div className={styles.leftCol}>
+            <GoogleLogo size="3em" />
+            <h1 className={styles.title}>Inicia sesión</h1>
+            <p className={styles.subtitle}>Utiliza tu cuenta de Google</p>
+          </div>
 
-        <FormProvider {...methods}>
-          <form onSubmit={onSubmit} className={styles.form}>
-            <LoginForm isLoading={isLoading} />
-          </form>
-        </FormProvider>
+          <div className={styles.rightCol}>
+            {apiError && <p className={styles.errorMessage}>{apiError}</p>}
+
+            <FormProvider {...methods}>
+              <form onSubmit={onSubmit} className={styles.form}>
+                <LoginForm isLoading={isLoading} />
+              </form>
+            </FormProvider>
+          </div>
+
+        </div>
         
       </div>
     </MainLayout>

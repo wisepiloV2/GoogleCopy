@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useAuth } from '@/context/AuthContext';
 import { useNavigate } from 'react-router-dom';
@@ -14,6 +14,15 @@ export function useLoginForm() {
   const [apiError, setApiError] = useState<string | null>(null);
   const { login } = useAuth();
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (apiError) {
+      const timer = setTimeout(() => {
+        setApiError(null); 
+      }, 4000); 
+      return () => clearTimeout(timer);
+    }
+  }, [apiError]);
 
   const methods = useForm<LoginData>({
     defaultValues: {

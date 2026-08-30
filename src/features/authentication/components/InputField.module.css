@@ -6,7 +6,7 @@
 }
 
 .label {
-  font-size: var(--text-sm);
+  font-size: var(--text-base);
   font-weight: 600;
   color: var(--text-primary);
   letter-spacing: 0.015em;
@@ -73,5 +73,19 @@
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+/* =========================================
+   AJUSTES PARA MÓVILES (Smartphones)
+   ========================================= */
+@media (max-width: 768px) {
+  .input {
+    font-size: max(16px, var(--form-input-size)); 
+    padding: 0.875rem 1rem; 
+  }
+
+  .inputContainer {
+    gap: 0.75rem; 
   }
 }

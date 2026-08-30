@@ -4,6 +4,7 @@ import { useFormSteps } from '../../hooks/useFormSteps';
 import { Button } from '@/components/Button/Button';
 import styles from './RegisterForm.module.css';
 import { InputField } from '../InputField';
+import { Link } from 'react-router-dom';
 
 const STEP_USERNAME = 1;
 const STEP_CONTACT_INFO = 2; 
@@ -32,12 +33,17 @@ export function RegisterForm({ isLoading } : { isLoading?: boolean }) {
   return (
     <div className={styles.container} onKeyDown={handleKeyDown}>
       {step === STEP_USERNAME && (
-        <InputField
-          label="Nombre de Usuario"
-          placeholder="Escribe tu nombre de usuario"
-          error={errors.username?.message as string}
-          {...register('username')}
-        />
+        <>
+          <InputField
+            label="Nombre de Usuario"
+            placeholder="Escribe tu nombre de usuario"
+            error={errors.username?.message as string}
+            {...register('username')}
+          />
+          <Link to='/auth/login' className={styles.link}>¿Ya tienes cuenta? Inicia sesión</Link>
+        </>
+        
+
       )}
 
       {step === STEP_CONTACT_INFO && (

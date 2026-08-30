@@ -32,6 +32,9 @@
   position: absolute;
   top: 48px;
   right: 0;
+  width: 320px; 
+  max-width: calc(100vw - 32px); 
+  max-height: calc(100vh - 80px);
   background-color: var(--modal-bg);
   border: 1px solid var(--modal-border);
   border-radius: var(--modal-radius); 
@@ -51,4 +54,20 @@
   margin-bottom: var(--space-4); 
   font-size: var(--text-base); 
   color: var(--text-secondary);
+}
+
+/* =========================================
+   RESPONSIVO: Para celulares muy pequeños
+   ========================================= */
+@media (max-width: 490px) {
+  .appsDropdown{
+    left: -220px;
+  }
+}
+
+@media (max-width: 400px) {
+  .appsDropdown{
+    left: -150px;
+    width: 250px; 
+  }
 }
