@@ -1,12 +1,11 @@
 .linkBarContainer {
   display: flex;
-  gap: var(--space-3); 
+  gap: 12px; 
 }
 
 .linkBarLink {
   color: var(--text-primary); 
   text-decoration: none;
-  margin-right: var(--space-4);
   transition: color var(--transition-base); 
 }
 

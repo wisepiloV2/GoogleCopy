@@ -239,158 +239,157 @@
 DARK THEME
 ========================================================= */
 
-   @media (prefers-color-scheme: dark) {
-   :root {
-      /* -------------------------------------------------------
-      BACKGROUNDS
-      ------------------------------------------------------- */
-      /* Main application background */
-      --bg-primary: #202124;
+:root[data-theme="dark"] {
+   /* -------------------------------------------------------
+   BACKGROUNDS
+   ------------------------------------------------------- */
+   /* Main application background */
+   --bg-primary: #202124;
 
-      /* Sections / sidebars / secondary areas */
-      --bg-secondary: #292a2d;
+   /* Sections / sidebars / secondary areas */
+   --bg-secondary: #292a2d;
 
-      /* Inputs / subtle surfaces */
-      --bg-tertiary: #303134;
+   /* Inputs / subtle surfaces */
+   --bg-tertiary: #303134;
 
-      /* Cards / modals */
-      --bg-elevated: #303134;
+   /* Cards / modals */
+   --bg-elevated: #303134;
 
-      --bg-hover: #3c4043;
-      --bg-active: #3c4043;
+   --bg-hover: #3c4043;
+   --bg-active: #3c4043;
 
-      /* -------------------------------------------------------
-      SURFACES
-      ------------------------------------------------------- */
-      --card-bg: #292a2d;
-      --modal-bg: #303134;
+   /* -------------------------------------------------------
+   SURFACES
+   ------------------------------------------------------- */
+   --card-bg: #292a2d;
+   --modal-bg: #303134;
 
-      --card-border: #3c4043;
-      --modal-border: #5f6368;
+   --card-border: #3c4043;
+   --modal-border: #5f6368;
 
-      --card-hover-bg: #303134;
+   --card-hover-bg: #303134;
 
-      --modal-overlay-bg: rgba(0, 0, 0, 0.70);
+   --modal-overlay-bg: rgba(0, 0, 0, 0.70);
 
-      --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.35);
-      --shadow-sm: 0 2px 5px rgba(0, 0, 0, 0.40);
-      --shadow-md: 0 6px 16px rgba(0, 0, 0, 0.45);
-      --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.50);
+   --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.35);
+   --shadow-sm: 0 2px 5px rgba(0, 0, 0, 0.40);
+   --shadow-md: 0 6px 16px rgba(0, 0, 0, 0.45);
+   --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.50);
 
-      --modal-shadow-dark: rgba(0, 0, 0, 0.55);
-      --modal-shadow-light: rgba(0, 0, 0, 0.25);
+   --modal-shadow-dark: rgba(0, 0, 0, 0.55);
+   --modal-shadow-light: rgba(0, 0, 0, 0.25);
 
-      --card-hover-overlay: rgba(255, 255, 255, 0.05);
+   --card-hover-overlay: rgba(255, 255, 255, 0.05);
 
-      /* -------------------------------------------------------
-      TEXT
-      ------------------------------------------------------- */
-      --text-primary: #e8eaed;
-      --text-secondary: #bdc1c6;
-      --text-tertiary: #9aa0a6;
-      --text-disabled: #5f6368;
+   /* -------------------------------------------------------
+   TEXT
+   ------------------------------------------------------- */
+   --text-primary: #e8eaed;
+   --text-secondary: #bdc1c6;
+   --text-tertiary: #9aa0a6;
+   --text-disabled: #5f6368;
 
-      --text-on-primary: #202124;
-      --text-link: #8ab4f8;
+   --text-on-primary: #202124;
+   --text-link: #8ab4f8;
 
-      /* -------------------------------------------------------
-      BRAND / PRIMARY
-      ------------------------------------------------------- */
-      --primary: #8ab4f8;
-      --primary-hover: #aecbfa;
-      --primary-active: #669df6;
-      --primary-light: rgba(138, 180, 248, 0.12);
+   /* -------------------------------------------------------
+   BRAND / PRIMARY
+   ------------------------------------------------------- */
+   --primary: #8ab4f8;
+   --primary-hover: #aecbfa;
+   --primary-active: #669df6;
+   --primary-light: rgba(138, 180, 248, 0.12);
 
-      --primary-border: #8ab4f8;
+   --primary-border: #8ab4f8;
 
-      /* -------------------------------------------------------
-      BUTTONS 
-      ------------------------------------------------------- */
-      --btn-primary-bg: #8ab4f8;
-      --btn-primary-border: #8ab4f8;
-      --btn-primary-hover: #aecbfa;
-      --btn-primary-active: #669df6;
-      --btn-primary-text: #202124;
+   /* -------------------------------------------------------
+   BUTTONS 
+   ------------------------------------------------------- */
+   --btn-primary-bg: #8ab4f8;
+   --btn-primary-border: #8ab4f8;
+   --btn-primary-hover: #aecbfa;
+   --btn-primary-active: #669df6;
+   --btn-primary-text: #202124;
 
-      --btn-secondary-bg: transparent;
-      --btn-secondary-border: #5f6368;
-      --btn-secondary-hover-bg: rgba(138, 180, 248, 0.10);
-      --btn-secondary-active-bg: rgba(138, 180, 248, 0.16);
-      --btn-secondary-hover-border: #8ab4f8;
-      --btn-secondary-text: #8ab4f8;
+   --btn-secondary-bg: transparent;
+   --btn-secondary-border: #5f6368;
+   --btn-secondary-hover-bg: rgba(138, 180, 248, 0.10);
+   --btn-secondary-active-bg: rgba(138, 180, 248, 0.16);
+   --btn-secondary-hover-border: #8ab4f8;
+   --btn-secondary-text: #8ab4f8;
 
-      --btn-ghost-bg: transparent;
-      --btn-ghost-hover-bg: rgba(255, 255, 255, 0.08);
-      --btn-ghost-active-bg: rgba(255, 255, 255, 0.12);
-      --btn-ghost-text: #bdc1c6;
+   --btn-ghost-bg: transparent;
+   --btn-ghost-hover-bg: rgba(255, 255, 255, 0.08);
+   --btn-ghost-active-bg: rgba(255, 255, 255, 0.12);
+   --btn-ghost-text: #bdc1c6;
 
-      /* -------------------------------------------------------
-      INPUTS / FORMS
-      ------------------------------------------------------- */
-      --input-bg: #202124;
-      --input-bg-hover: #25262a;
-      --input-bg-focus: #202124;
+   /* -------------------------------------------------------
+   INPUTS / FORMS
+   ------------------------------------------------------- */
+   --input-bg: #202124;
+   --input-bg-hover: #25262a;
+   --input-bg-focus: #202124;
 
-      --input-border: #5f6368;
-      --input-border-hover: #9aa0a6;
-      --input-border-focus: #8ab4f8;
+   --input-border: #5f6368;
+   --input-border-hover: #9aa0a6;
+   --input-border-focus: #8ab4f8;
 
-      --input-text: #e8eaed;
-      --input-placeholder: #9aa0a6;
+   --input-text: #e8eaed;
+   --input-placeholder: #9aa0a6;
 
-      --input-disabled-bg: #292a2d;
-      --input-disabled-text: #5f6368;
+   --input-disabled-bg: #292a2d;
+   --input-disabled-text: #5f6368;
 
-      --input-focus-ring: rgba(138, 180, 248, 0.20);
+   --input-focus-ring: rgba(138, 180, 248, 0.20);
 
-      /* Search */
-      --search-bg: #303134;
-      --search-bg-hover: #3c4043;
-      --search-border: transparent;
-      --search-border-focus: #5f6368;
-      --search-text: #e8eaed;
-      --search-placeholder: #9aa0a6;
+   /* Search */
+   --search-bg: #303134;
+   --search-bg-hover: #3c4043;
+   --search-border: transparent;
+   --search-border-focus: #5f6368;
+   --search-text: #e8eaed;
+   --search-placeholder: #9aa0a6;
 
-      /* -------------------------------------------------------
-      STATES
-      ------------------------------------------------------- */
-      --accent-error: #f28b82;
-      --error-bg: rgba(242, 139, 130, 0.10);
-      --error-border: rgba(242, 139, 130, 0.35);
-      --error-hover-bg: rgba(242, 139, 130, 0.14);
+   /* -------------------------------------------------------
+   STATES
+   ------------------------------------------------------- */
+   --accent-error: #f28b82;
+   --error-bg: rgba(242, 139, 130, 0.10);
+   --error-border: rgba(242, 139, 130, 0.35);
+   --error-hover-bg: rgba(242, 139, 130, 0.14);
 
-      --accent-success: #81c995;
-      --success-bg: rgba(129, 201, 149, 0.10);
-      --success-border: rgba(129, 201, 149, 0.30);
+   --accent-success: #81c995;
+   --success-bg: rgba(129, 201, 149, 0.10);
+   --success-border: rgba(129, 201, 149, 0.30);
 
-      --accent-warning: #fdd663;
-      --warning-bg: rgba(253, 214, 99, 0.10);
-      --warning-border: rgba(253, 214, 99, 0.30);
+   --accent-warning: #fdd663;
+   --warning-bg: rgba(253, 214, 99, 0.10);
+   --warning-border: rgba(253, 214, 99, 0.30);
 
-      --accent-info: #8ab4f8;
-      --info-bg: rgba(138, 180, 248, 0.10);
-      --info-border: rgba(138, 180, 248, 0.30);
+   --accent-info: #8ab4f8;
+   --info-bg: rgba(138, 180, 248, 0.10);
+   --info-border: rgba(138, 180, 248, 0.30);
 
-      /* -------------------------------------------------------
-      DIVIDERS
-      ------------------------------------------------------- */
-      --border-subtle: #292a2d;
-      --border-default: #3c4043;
-      --border-strong: #5f6368;
+   /* -------------------------------------------------------
+   DIVIDERS
+   ------------------------------------------------------- */
+   --border-subtle: #292a2d;
+   --border-default: #3c4043;
+   --border-strong: #5f6368;
 
-      /* -------------------------------------------------------
-      FOCUS
-      ------------------------------------------------------- */
-      --focus-ring: 0 0 0 3px rgba(138, 180, 248, 0.20);
+   /* -------------------------------------------------------
+   FOCUS
+   ------------------------------------------------------- */
+   --focus-ring: 0 0 0 3px rgba(138, 180, 248, 0.20);
 
-      /* -------------------------------------------------------
-      SCROLLBAR
-      ------------------------------------------------------- */
-      --dd-scroll-track: #202124;
-      --dd-scroll-thumb: #5f6368;
-      --dd-scroll-thumb-hover: #9aa0a6;
-   }
+   /* -------------------------------------------------------
+   SCROLLBAR
+   ------------------------------------------------------- */
+   --dd-scroll-track: #202124;
+   --dd-scroll-thumb: #5f6368;
+   --dd-scroll-thumb-hover: #9aa0a6;
 }
+
 
 /* =========================================================
 RESPONSIVE TYPOGRAPHY

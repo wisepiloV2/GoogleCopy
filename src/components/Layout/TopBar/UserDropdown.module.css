@@ -1,5 +1,5 @@
 .dropdownContainer {
-  position: absolute;
+  position: fixed;
   top: 60px; 
   right: 20px;
   width: 340px;
@@ -23,20 +23,19 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: var(--text-xl);
-  border-radius: var(--radius-full);
-  width: 28px;
-  height: 28px;
-  background-color: var(--btn-secondary-bg);
-  color: var(--text-secondary);
-  cursor: pointer; 
-  transition: background-color var(--transition-base), color var(--transition-base);
-  line-height: 0;
-  padding-bottom: 2px;
+  font-size: var(--text-xl) !important;
+  border-radius: var(--radius-full) !important;
+  width: 28px !important;
+  height: 28px !important;
+  background-color: var(--btn-secondary-bg) !important;
+  color: var(--text-secondary) !important;
+  transition: background-color var(--transition-base), color var(--transition-base) !important;
+  line-height: 0 !important;
+  padding-bottom: 2px ;
 }
 
 .dropdownCloseBtn:hover {
-  background-color: var(--btn-secondary-hover-bg);
+  background-color: var(--btn-secondary-hover-bg) !important;
 }
 
 .dropdownHeader {
@@ -154,4 +153,12 @@
 .dropdownFooter a:hover {
   text-decoration: underline;
   color: var(--text-primary); 
+}
+
+@media (max-width: 768px) {
+  .dropdownContainer{
+    position: fixed;
+    left: 0;
+    width: 100%;
+  }
 }

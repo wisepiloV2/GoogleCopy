@@ -19,7 +19,7 @@ export default function UserDropdown({ isOpen, onClose }: UserDropdownProps) {
 
   return (
     <div className={styles.dropdownContainer}>
-      <Button className={styles.dropdownCloseBtn} onClick={onClose}>
+      <Button variant='ghost' className={styles.dropdownCloseBtn} onClick={onClose}>
         &times;
       </Button>
 
@@ -30,8 +30,8 @@ export default function UserDropdown({ isOpen, onClose }: UserDropdownProps) {
       </div>
 
       <div className={styles.dropdownManage}>
-        <Link to={'/settings'} className={styles.btnManageAccount}>
-          Gestionar tu cuenta
+        <Link to={'/account/settings'} className={styles.btnManageAccount}>
+          Gestiona tu cuenta
         </Link>
       </div>
 

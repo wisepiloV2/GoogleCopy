@@ -1,7 +1,7 @@
 import {createBrowserRouter, RouterProvider} from 'react-router-dom';
-
 import { commonRoutes } from './commonRoutes';
 import { authenticationRoutes } from './authenticationRoutes';
+import { accountRoutes } from './accountRoutes';
 import { ErrorPage } from '@/pages';
 
 const router = createBrowserRouter([
@@ -10,7 +10,7 @@ const router = createBrowserRouter([
     children: [
       ...commonRoutes,
       ...authenticationRoutes,
-
+      ...accountRoutes,
       {
         path: '*',
         element: <ErrorPage 
