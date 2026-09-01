@@ -15,3 +15,9 @@ export interface RegisterRequest {
   email: string;
   password: string;
 }
+
+export interface SearchResult {
+  title: string;
+  url: string;
+  snippet: string;
+}

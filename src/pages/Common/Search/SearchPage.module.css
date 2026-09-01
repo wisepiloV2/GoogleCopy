@@ -1,0 +1,14 @@
+.resultsContainer {
+  width: 100%;
+  padding-left: 120px;
+  padding-top: 50px;
+}
+
+/* =========================================
+   RESPONSIVO: Para celulares y tablets 
+   ========================================= */
+@media (max-width: 540px) {
+  .resultsContainer {
+    margin-top: 4vh; 
+  }
+}

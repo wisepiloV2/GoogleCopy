@@ -1,0 +1,58 @@
+.result {
+  width: 100%;
+  max-width: 650px;
+  margin-bottom: 32px;
+}
+
+.url {
+  display: flex;
+  align-items: center; 
+  gap: 8px; 
+  margin-bottom: 5px;
+  color: var(--text-secondary);
+  font-size: 14px;
+  line-height: 20px;
+  text-decoration: none;
+}
+
+.url:hover {
+  text-decoration: underline;
+}
+
+.webIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  background-color: #f1f3f4;
+  border-radius: 50%;
+  color: #4d5156;
+}
+
+.domain {
+  word-break: break-all;
+}
+
+.title {
+  margin: 0 0 6px;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 26px;
+}
+
+.title a {
+  color: var(--link-color);
+  text-decoration: none;
+}
+
+.title a:hover {
+  text-decoration: underline;
+}
+
+.snippet {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 14px;
+  line-height: 21px;
+}

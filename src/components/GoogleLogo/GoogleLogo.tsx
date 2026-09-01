@@ -11,7 +11,9 @@ function GoogleLogo({ size }: LogoProps) {
       style={{ 
         all: 'unset', 
         cursor: 'pointer',       
-        display: 'inline-flex'
+        display: 'inline-flex',
+        justifyContent: 'center',
+        alignItems: 'center'
       }}
     >
       <svg height={size} style={{ flex: "none", lineHeight: 1 }} viewBox="0 0 77 24" xmlns="http://www.w3.org/2000/svg">
