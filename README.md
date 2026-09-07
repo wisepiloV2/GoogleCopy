@@ -1,6 +1,9 @@
 # Buscador Web basado en Google
 
-Un proyecto de prueba para establecer las bases de un backend en Java y un frontend en React, abarcando el consumo de una API y el despliegue en contenedores integrando Docker y Docker Compose.
+Un proyecto creado para establecer las bases de una arquitectura Full Stack con un backend en Java y un frontend en React. Abarca el desarrollo y consumo de una API REST, junto con el despliegue en contenedores utilizando Docker y Docker Compose.
+
+** Estado del proyecto (En desarrollo)**
+Actualmente, el backend responde a las consultas utilizando un JSON estático con datos simulados. El próximo paso en el roadmap es integrar un motor de búsqueda web real para procesar las peticiones.
 
 ## Tecnologías utilizadas
 
