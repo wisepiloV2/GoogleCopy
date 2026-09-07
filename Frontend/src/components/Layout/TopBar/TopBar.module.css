@@ -1,0 +1,101 @@
+.topBarContainer {
+  position: absolute;
+  top: 0;
+  display: flex;
+  align-items: center;
+  padding: 0.75rem 1.5rem;
+  font-family: 'Arial', sans-serif;
+  font-size: var(--text-sm);
+  box-sizing: border-box;
+  width: 98%;
+  gap: 24px;
+  z-index: 1000;
+}
+
+.logoContainer {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.centerContent {
+  flex-grow: 1;
+  max-width: 650px; 
+}
+
+.topBarActions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-left: auto;
+}
+
+.profileButton {
+  background-color: var(--accent-error);
+  color: var(--text-on-primary);
+  border: none;
+  border-radius: 9999px;
+  width: 32px;
+  height: 32px;
+  font-size: var(--text-sm);
+  font-weight: var(--font-weight-medium);
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: box-shadow 0.2s ease;
+  flex-shrink: 0; 
+}
+
+.profileButton:hover {
+  box-shadow: var(--shadow-sm);
+}
+
+.signInButton {
+  background-color: var(--btn-primary-bg);
+  color: var(--btn-primary-text);
+  border: 1px solid transparent;
+  border-radius: 9999px;
+  padding: 0.5rem 1.5rem;
+  font-family: 'Google Sans', 'Roboto', 'Arial', sans-serif;
+  font-size: var(--text-sm);
+  font-weight: var(--font-weight-medium);
+  letter-spacing: 0.25px;
+  cursor: pointer;
+  line-height: 16px;
+  text-align: center;
+  transition: background-color 0.15s ease, box-shadow 0.15s ease, color 0.15s ease;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.signInButton:hover {
+  background-color: var(--btn-primary-hover);
+  box-shadow: var(--shadow-md);
+}
+
+.signInButton:active {
+  background-color: var(--btn-primary-active);
+  box-shadow: var(--shadow-sm);
+}
+
+@media (max-width: 700px) {
+  .topBarContainer {
+    padding: 0.5rem 0.75rem;
+  }
+  
+  .signInButton {
+    padding: 0.5rem 1rem;
+  }
+
+  .topBarLink{
+    display: none;
+  }
+}
+@media (max-width: 540px) {
+  .centerContent{
+    position: absolute;
+    top: 60px;
+    width: 90%;
+  }
+}

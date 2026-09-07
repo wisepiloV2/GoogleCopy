@@ -1,0 +1,163 @@
+.fadeIn {
+  animation: fadeInAnimation 0.2s ease forwards;
+}
+
+@keyframes fadeInAnimation {
+  from { 
+    opacity: 0; 
+    transform: translateY(10px); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0); 
+  }
+}
+
+.profileHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-top: 1rem;
+  margin-bottom: 2.5rem;
+}
+
+.profileHeader h2 {
+  margin: 0.75rem 0 0 0;
+  font-size: var(--h3-size);
+  color: var(--text-primary);
+  font-weight: var(--font-weight-medium);
+}
+
+.avatarWrapper {
+  position: relative;
+}
+
+.avatar {
+  width: 80px;
+  height: 80px;
+  background-color: var(--text-tertiary);
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--text-2xl);
+  color: var(--text-on-primary);
+  text-transform: uppercase;
+  box-shadow: var(--shadow-sm);
+}
+
+.subtitle {
+  color: var(--text-secondary);
+  font-size: var(--text-sm);
+  margin: 0.25rem 0 0 0;
+}
+
+.dataCard {
+  background-color: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: var(--shadow-xs);
+}
+
+.dataCardHeader {
+  padding: 1.25rem 1rem;
+  border-bottom: 1px solid var(--border-default);
+}
+
+.dataCardHeader h3 {
+  margin: 0;
+  font-size: var(--card-title-size);
+  color: var(--text-primary);
+  font-weight: var(--font-weight-medium);
+}
+
+.lockedContainer {
+  padding: 2rem 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: fadeInAnimation 0.2s ease forwards;
+}
+
+.lockedContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 320px;
+  width: 100%;
+}
+
+.lockIcon {
+  width: 48px;
+  height: 48px;
+  color: var(--text-tertiary);
+  margin-bottom: 1rem;
+}
+
+.lockedContent h4 {
+  margin: 0 0 0.5rem 0;
+  color: var(--text-primary);
+  font-size: var(--text-lg);
+  font-weight: var(--font-weight-medium);
+}
+
+.lockedText {
+  color: var(--text-secondary);
+  font-size: var(--text-sm);
+  margin: 0 0 1.5rem 0;
+}
+
+.unlockForm {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 1rem;
+}
+
+.passwordInput {
+  width: auto;
+  padding: 0.75rem;
+  background-color: var(--input-bg);
+  border: 1px solid var(--input-border);
+  color: var(--input-text);
+  border-radius: 6px;
+  font-size: var(--text-base);
+  outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  box-sizing: border-box;
+}
+
+.passwordInput:focus {
+  border-color: var(--input-border-focus);
+  box-shadow: var(--focus-ring);
+}
+
+.errorMessage {
+  color: var(--accent-error);
+  font-size: var(--text-xs);
+  text-align: left;
+  margin-top: -0.5rem;
+}
+
+@media (min-width: 640px) {
+  .profileHeader {
+    margin-bottom: 3rem;
+  }
+
+  .avatar {
+    width: 96px;
+    height: 96px;
+    font-size: var(--text-3xl);
+  }
+
+  .dataCardHeader {
+    padding: 1.5rem;
+  }
+
+  .lockedContainer {
+    padding: 3rem 1.5rem;
+  }
+}

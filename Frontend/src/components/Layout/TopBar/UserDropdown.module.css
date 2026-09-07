@@ -1,0 +1,164 @@
+.dropdownContainer {
+  position: absolute;
+  top: 60px; 
+  right: 20px;
+  width: 340px;
+  background-color: var(--modal-bg);
+  border-radius: 14px;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--modal-border);
+  font-family: 'Roboto', 'Segoe UI', sans-serif;
+  color: var(--text-primary);
+  z-index: 1000;
+  padding: 1rem 0;
+  overflow: hidden;
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.dropdownCloseBtn {
+  all: unset;
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: var(--text-xl);
+  border-radius: 9999px;
+  width: 28px;
+  height: 28px;
+  background-color: var(--btn-secondary-bg);
+  color: var(--text-secondary);
+  transition: background-color 0.2s ease, color 0.2s ease;
+  line-height: 0;
+  padding-bottom: 2px;
+}
+
+.dropdownCloseBtn:hover {
+  background-color: var(--btn-secondary-hover-bg);
+}
+
+.dropdownHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.5rem 1.5rem 1rem;
+  gap: 1rem;
+}
+
+.dropdownName {
+  font-size: var(--text-xl);
+  font-weight: var(--font-weight-medium);
+  letter-spacing: 0.1px;
+}
+
+.dropdownEmail {
+  font-size: var(--text-base);
+  color: var(--text-secondary);
+  margin-top: 0.25rem;
+}
+
+.dropdownUser {
+  background-color: var(--accent-error);
+  color: var(--text-on-primary);
+  border: none;
+  border-radius: 9999px;
+  font-weight: var(--font-weight-medium);
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: box-shadow 0.2s ease;
+  line-height: 0;
+  width: 86px;
+  height: 86px;
+  font-size: var(--text-4xl);
+}
+
+.dropdownManage {
+  display: flex;
+  justify-content: center;
+  padding: 0 1.5rem 1rem;
+}
+
+.btnManageAccount {
+  background-color: transparent; 
+  border: 1px solid var(--btn-secondary-border);
+  border-radius: 9999px;
+  padding: 10px 20px;
+  font-size: var(--text-base);
+  font-weight: var(--font-weight-medium);
+  color: var(--primary);
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+  text-decoration: none;  
+  display: inline-block; 
+  text-align: center; 
+}
+
+.btnManageAccount:hover {
+  background-color: var(--primary-light);
+}
+
+.dropdownDivider {
+  border: 0;
+  height: 1px;
+  background-color: var(--border-default);
+  margin: 0;
+}
+
+.dropdownMenuList {
+  list-style: none;
+  padding: 0.5rem 0;
+  margin: 0;
+}
+
+.dropdownMenuItem {
+  padding: 0.75rem 1.5rem;
+  font-size: var(--text-sm);
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.dropdownMenuItem:hover {
+  background-color: var(--bg-hover);
+}
+
+.dropdownIcon {
+  margin-right: 0.5rem;
+  font-size: var(--text-base);
+  min-width: 24px;
+  text-align: center;
+}
+
+.dropdownFooter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 1.5rem 0.25rem;
+  font-size: var(--text-xs);
+  color: var(--text-secondary);
+}
+
+.dropdownFooter a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.dropdownFooter a:hover {
+  text-decoration: underline;
+  color: var(--text-primary);
+}
+
+@media (max-width: 380px) {
+  .dropdownContainer{
+    position: fixed;
+    left: 0;
+    width: 100%;
+  }
+}

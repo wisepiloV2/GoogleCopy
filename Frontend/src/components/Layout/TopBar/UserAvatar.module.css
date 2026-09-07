@@ -1,0 +1,20 @@
+.container {
+  position: relative;
+}
+
+.userAvatar {
+  background-color: var(--accent-error);
+  color: var(--text-on-primary);
+  border: none;
+  border-radius: 9999px;
+  font-weight: var(--font-weight-medium);
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: box-shadow 0.2s ease;
+  line-height: 0;
+  width: 32px;
+  height: 32px;
+  font-size: var(--text-sm);
+}

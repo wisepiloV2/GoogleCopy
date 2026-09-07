@@ -1,0 +1,22 @@
+.resultsContainer {
+  width: 100%;
+  padding-left: 120px;
+  padding-top: 70px;
+  box-sizing: border-box;
+}
+
+@media (max-width: 540px) {
+  .resultsContainer {
+    box-sizing: border-box;
+    padding: 5px;
+    padding-top: 50px;
+  }
+}
+
+@media (max-width: 790px) {
+  .resultsContainer {
+    box-sizing: border-box;
+    padding: 5px;
+    padding-top: 100px;
+  }
+}

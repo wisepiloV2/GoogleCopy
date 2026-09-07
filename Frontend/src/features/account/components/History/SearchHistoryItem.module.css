@@ -1,0 +1,79 @@
+.item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+  transition: 0.15s ease;
+}
+
+.item:hover {
+  background-color: var(--bg-hover);
+}
+
+.itemLeft {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  min-width: 0;
+}
+
+.searchIcon {
+  color: var(--text-tertiary);
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+.itemText {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.term {
+  color: var(--text-primary);
+  font-weight: var(--font-weight-medium);
+  font-size: var(--text-base);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.date {
+  color: var(--text-secondary);
+  font-size: var(--text-xs);
+}
+
+.deleteBtn {
+  background: transparent;
+  border: none;
+  color: var(--text-tertiary);
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.15s ease;
+  flex-shrink: 0;
+}
+
+.deleteBtn:hover {
+  background-color: var(--bg-tertiary);
+  color: var(--text-primary);
+}
+
+@media (max-width: 768px) {
+  .item {
+    padding: 5px;
+  }
+
+  .term {
+    font-size: var(--text-sm);
+  }
+
+  .itemLeft {
+    gap: 0.75rem;
+  }
+}

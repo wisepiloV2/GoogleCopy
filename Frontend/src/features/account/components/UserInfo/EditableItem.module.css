@@ -1,0 +1,84 @@
+@keyframes slideDown {
+  from { 
+    opacity: 0; 
+    transform: translateY(-8px); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0); 
+  }
+}
+
+.itemContainer {
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.itemContainer:last-child {
+  border-bottom: none;
+}
+
+.listItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  transition: background-color 0.15s ease;
+  gap: 0.75rem;
+}
+
+.listItem:hover {
+  background-color: var(--bg-hover);
+}
+
+.labelValueContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.25rem;
+}
+
+.label {
+  width: 90px;
+  color: var(--text-secondary);
+  font-size: var(--text-sm);
+  font-weight: var(--font-weight-medium);
+  flex-shrink: 0;
+}
+
+.value {
+  flex: 1;
+  font-size: var(--text-sm);
+  color: var(--text-primary);
+  word-break: break-word;
+}
+
+.editDropdown {
+  padding: 0.5rem 0.75rem;
+  animation: slideDown 0.15s ease;
+  display: flex;
+  flex-direction: column;
+  width: auto;
+}
+
+.inputField {
+  padding: 0.5rem 0.75rem;
+  background-color: var(--input-bg);
+  border: 1px solid var(--input-border);
+  color: var(--input-text);
+  border-radius: 6px;
+  font-size: var(--text-sm);
+  outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.inputField:focus {
+  border-color: var(--input-border-focus);
+  box-shadow: var(--focus-ring);
+}
+
+.actionButtons {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1rem;
+  justify-content: flex-end;
+}

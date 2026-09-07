@@ -1,0 +1,16 @@
+.linkBarContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px; 
+}
+
+.linkBarLink {
+  color: var(--text-primary);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.linkBarLink:hover {
+  text-decoration: underline;
+}

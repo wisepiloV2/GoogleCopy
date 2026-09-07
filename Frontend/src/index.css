@@ -1,0 +1,264 @@
+:root {
+   --bg-primary: #ffffff;
+   --bg-secondary: #f8f9fa;
+   --bg-tertiary: #f1f3f4;
+   --bg-elevated: #ffffff;
+   --bg-hover: #f1f3f4;
+   --bg-active: #e8f0fe;
+   --bg-dark: var(--bg-primary);
+
+   --card-bg: var(--bg-elevated);
+   --modal-bg: var(--bg-elevated);
+   --card-border: #dadce0;
+   --modal-border: #dadce0;
+   --card-hover-bg: #f8f9fa;
+   --modal-overlay-bg: rgba(32, 33, 36, 0.55);
+   --shadow-xs: 0 1px 2px rgba(60, 64, 67, 0.08);
+   --shadow-sm: 0 1px 3px rgba(60, 64, 67, 0.15);
+   --shadow-md: 0 4px 12px rgba(60, 64, 67, 0.15);
+   --shadow-lg: 0 8px 24px rgba(60, 64, 67, 0.18);
+   --modal-shadow-dark: rgba(0, 0, 0, 0.12);
+   --modal-shadow-light: rgba(0, 0, 0, 0.06);
+   --card-hover-overlay: rgba(60, 64, 67, 0.04);
+
+   --text-primary: #202124;
+   --text-secondary: #5f6368;
+   --text-tertiary: #80868b;
+   --text-disabled: #9aa0a6;
+   --text-on-primary: #ffffff;
+   --text-link: #1a73e8;
+
+   --primary: #1a73e8;
+   --primary-hover: #1769d3;
+   --primary-active: #1557b0;
+   --primary-light: #e8f0fe;
+   --primary-border: #1a73e8;
+
+   --btn-primary-bg: var(--primary);
+   --btn-primary-border: var(--primary);
+   --btn-primary-hover: var(--primary-hover);
+   --btn-primary-active: var(--primary-active);
+   --btn-primary-text: #ffffff;
+   --btn-secondary-bg: transparent;
+   --btn-secondary-border: #dadce0;
+   --btn-secondary-hover-bg: #f1f3f4;
+   --btn-secondary-active-bg: #e8eaed;
+   --btn-secondary-hover-border: #c5c8cc;
+   --btn-secondary-text: #3c4043;
+   --btn-ghost-bg: transparent;
+   --btn-ghost-hover-bg: #f1f3f4;
+   --btn-ghost-active-bg: #e8eaed;
+   --btn-ghost-text: #5f6368;
+
+   --input-bg: #ffffff;
+   --input-bg-hover: #ffffff;
+   --input-bg-focus: #ffffff;
+   --input-border: #dadce0;
+   --input-border-hover: #9aa0a6;
+   --input-border-focus: #1a73e8;
+   --input-text: #202124;
+   --input-placeholder: #80868b;
+   --input-disabled-bg: #f1f3f4;
+   --input-disabled-text: #9aa0a6;
+   --input-focus-ring: rgba(26, 115, 232, 0.18);
+
+   --search-bg: #f1f3f4;
+   --search-bg-hover: #ffffff;
+   --search-border: transparent;
+   --search-border-focus: #dadce0;
+   --search-text: #202124;
+   --search-placeholder: #80868b;
+
+   --accent-error: #d93025;
+   --error-bg: #fce8e6;
+   --error-border: #f5c2c0;
+   --error-hover-bg: rgba(217, 48, 37, 0.08);
+   --accent-success: #188038;
+   --success-bg: #e6f4ea;
+   --success-border: #b7dfbf;
+   --accent-warning: #f9ab00;
+   --warning-bg: #fef7e0;
+   --warning-border: #f8df9a;
+   --accent-info: #1a73e8;
+   --info-bg: #e8f0fe;
+   --info-border: #c6dafc;
+
+   --border-subtle: #f1f3f4;
+   --border-default: #dadce0;
+   --border-strong: #bdc1c6;
+
+   --focus-ring: 0 0 0 3px rgba(26, 115, 232, 0.18);
+
+   --text-xs: 0.75rem;
+   --text-sm: 0.875rem;
+   --text-base: 1rem;
+   --text-lg: 1.125rem;
+   --text-xl: 1.25rem;
+   --text-2xl: 1.5rem;
+   --text-3xl: 1.875rem;
+   --text-4xl: 2.25rem;
+
+   --font-weight-normal: 400;
+   --font-weight-medium: 500;
+   --font-weight-semibold: 600;
+   --font-weight-bold: 700;
+
+   --h1-size: var(--text-4xl);
+   --h2-size: var(--text-3xl);
+   --h3-size: var(--text-2xl);
+
+   --form-title-size: var(--text-2xl);
+   --form-subtitle-size: var(--text-lg);
+   --form-input-size: var(--text-base);
+
+   --card-title-size: var(--text-xl);
+   --card-text-size: var(--text-sm);
+
+   --dd-scroll-track: #ffffff;
+   --dd-scroll-thumb: #dadce0;
+   --dd-scroll-thumb-hover: #bdc1c6;
+}
+
+:root[data-theme="dark"] {
+   --bg-primary: #202124;
+   --bg-secondary: #292a2d;
+   --bg-tertiary: #303134;
+   --bg-elevated: #303134;
+   --bg-hover: #3c4043;
+   --bg-active: #3c4043;
+
+   --card-bg: #292a2d;
+   --modal-bg: #303134;
+   --card-border: #3c4043;
+   --modal-border: #5f6368;
+   --card-hover-bg: #303134;
+   --modal-overlay-bg: rgba(0, 0, 0, 0.70);
+   --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.35);
+   --shadow-sm: 0 2px 5px rgba(0, 0, 0, 0.40);
+   --shadow-md: 0 6px 16px rgba(0, 0, 0, 0.45);
+   --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.50);
+   --modal-shadow-dark: rgba(0, 0, 0, 0.55);
+   --modal-shadow-light: rgba(0, 0, 0, 0.25);
+   --card-hover-overlay: rgba(255, 255, 255, 0.05);
+
+   --text-primary: #e8eaed;
+   --text-secondary: #bdc1c6;
+   --text-tertiary: #9aa0a6;
+   --text-disabled: #5f6368;
+   --text-on-primary: #202124;
+   --text-link: #8ab4f8;
+
+   --primary: #8ab4f8;
+   --primary-hover: #aecbfa;
+   --primary-active: #669df6;
+   --primary-light: rgba(138, 180, 248, 0.12);
+   --primary-border: #8ab4f8;
+
+   --btn-primary-bg: #8ab4f8;
+   --btn-primary-border: #8ab4f8;
+   --btn-primary-hover: #aecbfa;
+   --btn-primary-active: #669df6;
+   --btn-primary-text: #202124;
+   --btn-secondary-bg: transparent;
+   --btn-secondary-border: #5f6368;
+   --btn-secondary-hover-bg: rgba(138, 180, 248, 0.10);
+   --btn-secondary-active-bg: rgba(138, 180, 248, 0.16);
+   --btn-secondary-hover-border: #8ab4f8;
+   --btn-secondary-text: #8ab4f8;
+   --btn-ghost-bg: transparent;
+   --btn-ghost-hover-bg: rgba(255, 255, 255, 0.08);
+   --btn-ghost-active-bg: rgba(255, 255, 255, 0.12);
+   --btn-ghost-text: #bdc1c6;
+
+   --input-bg: #202124;
+   --input-bg-hover: #25262a;
+   --input-bg-focus: #202124;
+   --input-border: #5f6368;
+   --input-border-hover: #9aa0a6;
+   --input-border-focus: #8ab4f8;
+   --input-text: #e8eaed;
+   --input-placeholder: #9aa0a6;
+   --input-disabled-bg: #292a2d;
+   --input-disabled-text: #5f6368;
+   --input-focus-ring: rgba(138, 180, 248, 0.20);
+
+   --search-bg: #303134;
+   --search-bg-hover: #3c4043;
+   --search-border: transparent;
+   --search-border-focus: #5f6368;
+   --search-text: #e8eaed;
+   --search-placeholder: #9aa0a6;
+
+   --accent-error: #f28b82;
+   --error-bg: rgba(242, 139, 130, 0.10);
+   --error-border: rgba(242, 139, 130, 0.35);
+   --error-hover-bg: rgba(242, 139, 130, 0.14);
+   --accent-success: #81c995;
+   --success-bg: rgba(129, 201, 149, 0.10);
+   --success-border: rgba(129, 201, 149, 0.30);
+   --accent-warning: #fdd663;
+   --warning-bg: rgba(253, 214, 99, 0.10);
+   --warning-border: rgba(253, 214, 99, 0.30);
+   --accent-info: #8ab4f8;
+   --info-bg: rgba(138, 180, 248, 0.10);
+   --info-border: rgba(138, 180, 248, 0.30);
+
+   --border-subtle: #292a2d;
+   --border-default: #3c4043;
+   --border-strong: #5f6368;
+
+   --focus-ring: 0 0 0 3px rgba(138, 180, 248, 0.20);
+
+   --dd-scroll-track: #202124;
+   --dd-scroll-thumb: #5f6368;
+   --dd-scroll-thumb-hover: #9aa0a6;
+}
+
+@media (min-width: 768px) {
+   :root {
+      --text-xs: 0.875rem;
+      --text-sm: 1rem;
+      --text-base: 1.125rem;
+      --text-lg: 1.25rem;
+      --text-xl: 1.5rem;
+      --text-2xl: 1.875rem;
+      --text-3xl: 2.25rem;
+      --text-4xl: 3rem;
+   }
+}
+
+@media (min-width: 1600px) {
+   :root {
+      --text-xs: 1rem;
+      --text-sm: 1.125rem;
+      --text-base: 1.25rem;
+      --text-lg: 1.5rem;
+      --text-xl: 1.875rem;
+      --text-2xl: 2.25rem;
+      --text-3xl: 3rem;
+      --text-4xl: 4rem;
+   }
+}
+
+* {
+   scrollbar-color: var(--dd-scroll-thumb) var(--dd-scroll-track);
+}
+
+::-webkit-scrollbar-track {
+   background: var(--dd-scroll-track);
+}
+
+::-webkit-scrollbar-thumb {
+   background-color: var(--dd-scroll-thumb);
+}
+
+::-webkit-scrollbar-thumb:hover {
+   background-color: var(--dd-scroll-thumb-hover);
+}
+
+body {
+   background-color: var(--bg-primary);
+   color: var(--text-primary);
+   font-size: var(--text-base);
+   font-family: system-ui, -apple-system, sans-serif; 
+}

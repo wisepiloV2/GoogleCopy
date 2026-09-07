@@ -1,0 +1,67 @@
+.appsMenuContainer {
+  position: relative;
+  display: inline-block;
+  font-family: 'Arial', sans-serif;
+}
+
+.appsButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 9999px; 
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  color: var(--text-secondary); 
+}
+
+.appsButton:hover {
+  background-color: var(--bg-hover);
+}
+
+.appsButton svg {
+  width: 24px;
+  height: 24px;
+  fill: currentColor;
+}
+
+.appsDropdown {
+  position: absolute;
+  top: 48px;
+  right: 0;
+  max-width: calc(100vw - 32px); 
+  max-height: calc(100vh - 80px);
+  background-color: var(--modal-bg);
+  border: 1px solid var(--modal-border);
+  border-radius: 10px;
+  box-shadow: var(--shadow-md);
+  padding: 1rem;
+  overflow-y: auto;
+  z-index: 100;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+}
+
+.appsTitle {
+  grid-column: 1 / -1; 
+  text-align: center;  
+  margin-top: 0;       
+  margin-bottom: 1rem;
+  font-size: var(--text-base);
+  color: var(--text-secondary);
+}
+
+@media (max-width: 400px) {
+  .appsDropdown {
+    width: 250px;
+    position: fixed;
+    top: 200px;
+    left: 50%;
+    right: auto;
+    transform: translate(-50%, -50%);
+  }
+}
