@@ -45,7 +45,7 @@ Sigue estos pasos para levantar todo el entorno con un solo comando:
    ```
 2. **Levanta los contenedores:**
    ```bash
-   docker-compose up -d --build
+   docker compose up -d --build
    ```
 > **Nota:** Si la ejecución falla, usa "sudo"
 
