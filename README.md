@@ -23,7 +23,7 @@ GoogleCopy/
 │   ├── src/
 │   └── Dockerfile
 ├── docker-compose.yml       # Orquestación de los contenedores
-└── README.md                # Documentación del general del proyecto
+└── README.md                # Documentación del general del proyecto, explicacion dentro de cada carpera en su readme (pendiente)
 ```
 
 ## Prerrequisitos
